@@ -9,24 +9,25 @@ public class Assessment {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAssessment;
-@Column(name = "descriptionAssessment",nullable = false,length = 100)
-    private String descriptionAssessment;
-@Column(name = "amountAssessment",nullable = false)
-    private int amountAssessment;
+
 @OneToOne
 @JoinColumn(name = "idPublication")
     private Publication idPublication;
 
+@ManyToOne
+@JoinColumn (name = "idTypeAssesment")
+    private TypeAssesment idTypeAssesment;
+
+
+
     public Assessment() {
     }
 
-    public Assessment(int idAssessment, String descriptionAssessment, int amountAssessment, Publication idPublication) {
+    public Assessment(int idAssessment, Publication idPublication, TypeAssesment idTypeAssesment) {
         this.idAssessment = idAssessment;
-        this.descriptionAssessment = descriptionAssessment;
-        this.amountAssessment = amountAssessment;
         this.idPublication = idPublication;
+        this.idTypeAssesment = idTypeAssesment;
     }
-
 
     public int getIdAssessment() {
         return idAssessment;
@@ -36,21 +37,8 @@ public class Assessment {
         this.idAssessment = idAssessment;
     }
 
-    public String getDescriptionAssessment() {
-        return descriptionAssessment;
-    }
 
-    public void setDescriptionAssessment(String descriptionAssessment) {
-        this.descriptionAssessment = descriptionAssessment;
-    }
 
-    public int getAmountAssessment() {
-        return amountAssessment;
-    }
-
-    public void setAmountAssessment(int amountAssessment) {
-        this.amountAssessment = amountAssessment;
-    }
 
     public Publication getIdPublication() {
         return idPublication;
@@ -58,5 +46,14 @@ public class Assessment {
 
     public void setIdPublication(Publication idPublication) {
         this.idPublication = idPublication;
+    }
+
+
+    public TypeAssesment getIdTypeAssesment() {
+        return idTypeAssesment;
+    }
+
+    public void setIdTypeAssesment(TypeAssesment idTypeAssesment) {
+        this.idTypeAssesment = idTypeAssesment;
     }
 }

@@ -1,7 +1,5 @@
 package pe.edu.upc.aww.werecycle.serviceinterfaces;
 
-import pe.edu.upc.aww.werecycle.entities.StatisticalReports;
-
 import java.util.List;
 
 public interface IUStatisticalReportsService {
