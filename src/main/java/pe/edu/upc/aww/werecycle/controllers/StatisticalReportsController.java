@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.StatisticalReportsDTO;
-import pe.edu.upc.aww.werecycle.entities.StatisticalReports;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUStatisticalReportsService;
 
 import java.util.List;
