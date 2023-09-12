@@ -8,6 +8,7 @@ public class TypeAssesment {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idTypeAssesment;
 
+    @Column (name="Tipo")
     private String type;
 
 
