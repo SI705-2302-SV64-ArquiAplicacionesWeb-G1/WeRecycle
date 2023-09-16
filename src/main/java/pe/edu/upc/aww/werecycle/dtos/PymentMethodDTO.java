@@ -1,30 +1,18 @@
-package pe.edu.upc.aww.werecycle.entities;
+package pe.edu.upc.aww.werecycle.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.aww.werecycle.entities.PurchaseRequest;
+import pe.edu.upc.aww.werecycle.entities.PymentMethod;
+import pe.edu.upc.aww.werecycle.entities.TypeCard;
 
-@Entity
-@Table(name = "PymentMethod")
-public class PymentMethod {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class PymentMethodDTO {
     public int idPymentMethod;
 
-    @ManyToOne
-    @JoinColumn(name = "idCodePurchase")
     public PurchaseRequest idCodePurchase;
 
-    @ManyToOne
-    @JoinColumn(name = "idTypeCard")
     public TypeCard idTypeCard;
-
-    public PymentMethod() {
-    }
-
-    public PymentMethod(int idPymentMethod, PurchaseRequest idCodePurchase, TypeCard idTypeCard) {
-        this.idPymentMethod = idPymentMethod;
-        this.idCodePurchase = idCodePurchase;
-        this.idTypeCard = idTypeCard;
-    }
 
     public int getIdPymentMethod() {
         return idPymentMethod;
