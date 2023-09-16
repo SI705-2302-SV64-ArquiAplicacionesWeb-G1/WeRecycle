@@ -8,7 +8,7 @@ public class TypeUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTypeUser;
-    @Column(name = "typeAccount", length = 10, nullable = false)
+    @Column(name = "typeAccount", length = 20, nullable = false)
     private String typeAccount;
     @Column(name = "stateType", nullable = false)
     private boolean stateType;
