@@ -1,31 +1,16 @@
-package pe.edu.upc.aww.werecycle.entities;
+package pe.edu.upc.aww.werecycle.dtos;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+import pe.edu.upc.aww.werecycle.entities.FrequentQuestions;
+import pe.edu.upc.aww.werecycle.entities.Useror;
 
-@Entity
-@Table(name = "UserQuestions")
-public class UserQuestions {
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserQuestionsDTO {
     private int idUserQuestions;
-    @ManyToOne
-    @JoinColumn(name = "idFrequenQuestions")
     private FrequentQuestions idFrequenQuestions;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser")
     private Useror idUser;
-
-    public UserQuestions() {
-    }
-
-    public UserQuestions(int idUserQuestions, FrequentQuestions idFrequenQuestions, Useror idUser) {
-        this.idUserQuestions = idUserQuestions;
-        this.idFrequenQuestions = idFrequenQuestions;
-        this.idUser = idUser;
-    }
 
     public int getIdUserQuestions() {
         return idUserQuestions;

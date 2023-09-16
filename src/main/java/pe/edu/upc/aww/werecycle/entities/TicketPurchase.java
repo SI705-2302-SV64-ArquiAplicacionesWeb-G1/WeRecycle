@@ -10,7 +10,7 @@ public class TicketPurchase {
     private int idCode;
 
     @ManyToOne
-    @JoinColumn(name = "idCodePurchase;")
+    @JoinColumn(name = "idCodePurchase")
     private PurchaseRequest idCodePurchase;
 
     public TicketPurchase() {
