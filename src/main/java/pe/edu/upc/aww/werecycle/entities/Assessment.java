@@ -6,18 +6,17 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Assesment")
 public class Assessment {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAssessment;
 
-@OneToOne
-@JoinColumn(name = "idPublication")
+    @OneToOne
+    @JoinColumn(name = "idPublication")
     private Publication idPublication;
 
-@ManyToOne
-@JoinColumn (name = "idTypeAssesment")
+    @ManyToOne
+    @JoinColumn(name = "idTypeAssesment")
     private TypeAssesment idTypeAssesment;
-
 
 
     public Assessment() {
@@ -36,8 +35,6 @@ public class Assessment {
     public void setIdAssessment(int idAssessment) {
         this.idAssessment = idAssessment;
     }
-
-
 
 
     public Publication getIdPublication() {
