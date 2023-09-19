@@ -30,4 +30,10 @@ public class MaterialUserControllet {
             return m.map(x, MaterialUserDTO.class);
         }).collect(Collectors.toList());
     }
+    @PutMapping
+    public void modificar(@RequestBody MaterialUserDTO dto){
+        ModelMapper m = new ModelMapper();
+        MaterialUser U =m.map(dto,MaterialUser.class);
+        mU.insert(U);
+    }
 }

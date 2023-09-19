@@ -33,4 +33,14 @@ public class RecyclingCenterController {
             return m.map(x, RecyclingCenterDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{idRecyclingCenter}")
+    public void eliminar(@PathVariable("idRecyclingCenter") Integer idRecyclingCenter){
+        rC.delete(idRecyclingCenter);
+    }
+
+    public void modificar(@RequestBody RecyclingCenterDTO dto){
+        ModelMapper m = new ModelMapper();
+        RecyclingCenter RC =m.map(dto,RecyclingCenter.class);
+        rC.insert(RC);
+    }
 }

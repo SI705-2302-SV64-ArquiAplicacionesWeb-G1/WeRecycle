@@ -1,11 +1,9 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
-import pe.edu.upc.aww.werecycle.entities.TypeUser;
+import pe.edu.upc.aww.werecycle.entities.Roles;
 import pe.edu.upc.aww.werecycle.entities.Ubication;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 public class UserDTO {
 
@@ -19,7 +17,7 @@ public class UserDTO {
 
     private LocalDate userAge;
 
-    private TypeUser typeUser;
+    private Roles roles;
 
     private Ubication ubicationUser;
 
@@ -63,12 +61,12 @@ public class UserDTO {
         this.userAge = userAge;
     }
 
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public Roles getTypeUser() {
+        return roles;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setTypeUser(Roles roles) {
+        this.roles = roles;
     }
 
     public Ubication getUbicationUser() {

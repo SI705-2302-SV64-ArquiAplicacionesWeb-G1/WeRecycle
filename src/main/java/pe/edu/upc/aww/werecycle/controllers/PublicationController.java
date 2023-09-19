@@ -32,4 +32,14 @@ public class PublicationController {
             return m.map(x, PublicationDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{idPublication}")
+    public void eliminar(@PathVariable("idPublication")Integer idPublication){
+        pU.delete(idPublication);
+    }
+    @PutMapping
+    public void modificar(@RequestBody PublicationDTO dto){
+        ModelMapper m = new ModelMapper();
+        Publication p = m.map(dto,Publication.class);
+        pU.insert(p);
+    }
 }

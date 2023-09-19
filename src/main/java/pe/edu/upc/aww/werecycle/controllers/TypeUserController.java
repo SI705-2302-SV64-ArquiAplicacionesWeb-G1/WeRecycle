@@ -4,7 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.TypeUserDTO;
-import pe.edu.upc.aww.werecycle.entities.TypeUser;
+import pe.edu.upc.aww.werecycle.entities.Roles;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ITypeUserService;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class TypeUserController {
     @PostMapping
     public void registrar(@RequestBody TypeUserDTO dto){
         ModelMapper m = new ModelMapper();
-        TypeUser t = m.map(dto,TypeUser.class);
+        Roles t = m.map(dto, Roles.class);
         tS.insert(t);
     }
 

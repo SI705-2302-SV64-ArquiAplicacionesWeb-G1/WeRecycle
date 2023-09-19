@@ -31,6 +31,14 @@ public class NotificationController {
             return m.map(x, NotificationDTO.class);
         }).collect(Collectors.toList());
     }
-
-
+    @DeleteMapping("/{idNotification}")
+    public void eliminar(@PathVariable ("idNotification") Integer idNotification){
+        nO.delete(idNotification);
+    }
+    @PutMapping()
+    public void modificar(@RequestBody NotificationDTO dto){
+        ModelMapper m = new ModelMapper();
+        Notification n = m.map(dto,Notification.class);
+        nO.insert(n);
+    }
 }

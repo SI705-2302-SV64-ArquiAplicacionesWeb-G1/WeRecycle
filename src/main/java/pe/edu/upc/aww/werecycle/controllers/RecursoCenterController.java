@@ -31,6 +31,10 @@ public class RecursoCenterController {
             return m.map(x, RecursoDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id_Recurso}")
+    public void eliminar(@PathVariable("id_Recurso") Integer id_Recurso){
+        rE.delete(id_Recurso);
+    }
 
 
 }
