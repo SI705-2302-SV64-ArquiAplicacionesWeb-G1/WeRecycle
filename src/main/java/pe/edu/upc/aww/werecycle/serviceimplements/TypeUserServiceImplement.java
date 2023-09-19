@@ -2,7 +2,7 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.aww.werecycle.entities.TypeUser;
+import pe.edu.upc.aww.werecycle.entities.Roles;
 import pe.edu.upc.aww.werecycle.repositories.ITypeUserRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ITypeUserService;
 
@@ -13,12 +13,12 @@ public class TypeUserServiceImplement implements ITypeUserService {
     @Autowired
     private ITypeUserRepository tR;
     @Override
-    public void insert(TypeUser typeUser) {
-        tR.save(typeUser);
+    public void insert(Roles roles) {
+        tR.save(roles);
     }
 
     @Override
-    public List<TypeUser> list() {
+    public List<Roles> list() {
         return tR.findAll();
     }
 

@@ -30,4 +30,10 @@ public class RecyclableMaterialController {
             return m.map(x, RecyclableMaterialDTO.class);
         }).collect(Collectors.toList());
     }
+
+    public void modificar(@RequestBody RecyclableMaterialDTO dto){
+        ModelMapper m = new ModelMapper();
+        RecyclableMaterial RM =m.map(dto, RecyclableMaterial.class);
+        rM.insert(RM);
+    }
 }

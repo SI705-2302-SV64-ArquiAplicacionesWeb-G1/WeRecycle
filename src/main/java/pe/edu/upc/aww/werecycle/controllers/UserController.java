@@ -22,10 +22,20 @@ public class UserController {
         uS.insert(u);
     }
     @GetMapping
-    public List<UserDTO>listar(){
-        return uS.list().stream().map(x->{
+    public List<UserDTO>listar() {
+        return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x,UserDTO.class);
+            return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
+    }
+    @DeleteMapping("/{idUser}")
+    public void eliminar(@PathVariable ("idUser") Integer idUser){
+        uS.delete(idUser);
+    }
+
+    public void modificar(@RequestBody UserDTO dto){
+        ModelMapper m = new ModelMapper();
+        Useror u =m.map(dto,Useror.class);
+        uS.insert(u);
     }
 }

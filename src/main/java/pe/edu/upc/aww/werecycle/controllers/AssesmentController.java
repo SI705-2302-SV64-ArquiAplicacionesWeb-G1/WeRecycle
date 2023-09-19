@@ -30,6 +30,4 @@ public class AssesmentController {
             return m.map(x, AssesmentDTO.class);
         }).collect(Collectors.toList());
     }
-
-
 }
