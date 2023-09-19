@@ -13,7 +13,7 @@ public class Useror implements Serializable {
     private int idUser;
     @Column(name = "userName", nullable = false,length = 50)
     private String userName;
-    @Column(name = "userPassword", nullable = false,length = 50)
+    @Column(name = "userPassword", nullable = false,length = 100)
     private String userPassword;
     @Column(name = "userEmail", nullable = false,length = 100)
     private String userEmail;
