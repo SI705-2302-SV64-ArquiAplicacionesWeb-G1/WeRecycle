@@ -8,20 +8,20 @@ public class PurchaseRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCodePurchase;
-    @ManyToOne
-    @JoinColumn(name = "dRecyclableMaterial")
-    private RecyclableMaterial idRecyclableMaterial;
+    @OneToOne
+    @JoinColumn(name = "idCart")
+    private Cart idCart;
 
     @ManyToOne
-    @JoinColumn(name = "UserInd")
+    @JoinColumn(name = "idUser")
     private Useror idUser;
 
     public PurchaseRequest() {
     }
 
-    public PurchaseRequest(int idCodePurchase, RecyclableMaterial idRecyclableMaterial, Useror idUser) {
+    public PurchaseRequest(int idCodePurchase, Cart idCart, Useror idUser) {
         this.idCodePurchase = idCodePurchase;
-        this.idRecyclableMaterial = idRecyclableMaterial;
+        this.idCart = idCart;
         this.idUser = idUser;
     }
 
@@ -33,12 +33,12 @@ public class PurchaseRequest {
         this.idCodePurchase = idCodePurchase;
     }
 
-    public RecyclableMaterial getIdRecyclableMaterial() {
-        return idRecyclableMaterial;
+    public Cart getIdCart() {
+        return idCart;
     }
 
-    public void setIdRecyclableMaterial(RecyclableMaterial idRecyclableMaterial) {
-        this.idRecyclableMaterial = idRecyclableMaterial;
+    public void setIdCart(Cart idCart) {
+        this.idCart = idCart;
     }
 
     public Useror getIdUser() {

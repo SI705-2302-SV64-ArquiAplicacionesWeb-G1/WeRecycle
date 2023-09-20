@@ -1,11 +1,11 @@
 package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Roles", uniqueConstraints = {@UniqueConstraint(columnNames = {"idUser","typeAccount"})})
+@Table(name = "Roles")
 public class Roles {
-    private static final long serialVersionUID= 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTypeUser;
@@ -13,17 +13,15 @@ public class Roles {
     private String typeAccount;
     @Column(name = "stateType", nullable = false)
     private boolean stateType;
-    @ManyToOne
-    @JoinColumn(name = "idUser", nullable = false)
-    private Useror user;
 
     public Roles() {
     }
 
-    public Roles(int idTypeUser, String typeAccount, boolean stateType) {
+    public Roles(int idTypeUser, String typeAccount, boolean stateType, List<Useror> idUser) {
         this.idTypeUser = idTypeUser;
         this.typeAccount = typeAccount;
         this.stateType = stateType;
+
     }
 
     public int getIdTypeUser() {
@@ -49,4 +47,6 @@ public class Roles {
     public void setStateType(boolean stateType) {
         this.stateType = stateType;
     }
+
+
 }

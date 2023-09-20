@@ -8,11 +8,14 @@ public class Publication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPublication;
-@OneToOne
-@JoinColumn(name = "id_TypeRecurso")
+
+    @Column(name = "title",length = 100,nullable = false)
+    private String title;
+    @OneToOne
+    @JoinColumn(name = "id_TypeRecurso")
     private TypeRecurso id_TypeRecurso;
-@OneToOne
-@JoinColumn(name = "idUser")
+    @OneToOne
+    @JoinColumn(name = "idUser")
     private Useror idUser;
 
     public Publication() {

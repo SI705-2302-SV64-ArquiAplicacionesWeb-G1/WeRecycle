@@ -1,17 +1,17 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
 
-import pe.edu.upc.aww.werecycle.entities.Useror;
 
-import javax.persistence.*;
+public class RolesDTO {
 
-public class TypeUserDTO {
 
     private int idTypeUser;
 
     private String typeAccount;
 
     private boolean stateType;
+
+
 
     public int getIdTypeUser() {
         return idTypeUser;
@@ -36,4 +36,6 @@ public class TypeUserDTO {
     public void setStateType(boolean stateType) {
         this.stateType = stateType;
     }
+
+
 }
