@@ -9,4 +9,6 @@ public interface ITicketPurchaseService {
     public void insert(TicketPurchase ticketPurchase);
 
     public List<TicketPurchase> list();
+
+    public void delete(int idCodePurchase);
 }

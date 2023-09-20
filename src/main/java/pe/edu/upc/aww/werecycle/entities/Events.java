@@ -10,6 +10,9 @@ public class Events {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEvent;
+
+    @Column(name = "title", length = 100,nullable = false)
+    private String title;
     @Column(name = "Date",nullable = false)
     private LocalDate Date;
     @Column(name = "Description",nullable = false,length = 200)
@@ -25,12 +28,21 @@ public class Events {
     public Events() {
     }
 
-    public Events(int idEvent, LocalDate date, String description, int numberParticipant, Ubication idUbication) {
+    public Events(int idEvent, String title, LocalDate date, String description, int numberParticipant, Ubication idUbication) {
         this.idEvent = idEvent;
+        this.title = title;
         Date = date;
         Description = description;
         NumberParticipant = numberParticipant;
         this.idUbication = idUbication;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getIdEvent() {

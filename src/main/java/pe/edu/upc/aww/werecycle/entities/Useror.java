@@ -1,13 +1,12 @@
 package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+
 
 @Entity
 @Table(name = "Useror")
-public class Useror implements Serializable {
+public class Useror  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
@@ -19,9 +18,9 @@ public class Useror implements Serializable {
     private String userEmail;
     @Column(name = "userAge",nullable = false)
     private LocalDate userAge;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idRol")
-    private List<Roles> roles;
+    private Roles roles;
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication ubicationUser;
@@ -29,7 +28,7 @@ public class Useror implements Serializable {
     public Useror() {
     }
 
-    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, List<Roles> roles, Ubication ubicationUser) {
+    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, Roles roles, Ubication ubicationUser) {
         this.idUser = idUser;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -79,11 +78,11 @@ public class Useror implements Serializable {
         this.userAge = userAge;
     }
 
-    public List<Roles> getRoles() {
+    public Roles getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Roles> roles) {
+    public void setRoles(Roles roles) {
         this.roles = roles;
     }
 

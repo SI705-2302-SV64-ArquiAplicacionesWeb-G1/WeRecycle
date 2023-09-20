@@ -23,4 +23,9 @@ public class TicketPurchaseServiceImplement implements ITicketPurchaseService {
     public List<TicketPurchase> list() {
         return tpR.findAll();
     }
+
+    @Override
+    public void delete(int idCodePurchase) {
+        tpR.deleteById(idCodePurchase);
+    }
 }

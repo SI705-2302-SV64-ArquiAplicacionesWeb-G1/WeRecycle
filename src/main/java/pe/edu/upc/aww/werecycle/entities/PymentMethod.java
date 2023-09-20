@@ -13,17 +13,13 @@ public class PymentMethod {
     @JoinColumn(name = "idCodePurchase")
     public PurchaseRequest idCodePurchase;
 
-    @ManyToOne
-    @JoinColumn(name = "idTypeCard")
-    public TypeCard idTypeCard;
 
     public PymentMethod() {
     }
 
-    public PymentMethod(int idPymentMethod, PurchaseRequest idCodePurchase, TypeCard idTypeCard) {
+    public PymentMethod(int idPymentMethod, PurchaseRequest idCodePurchase) {
         this.idPymentMethod = idPymentMethod;
         this.idCodePurchase = idCodePurchase;
-        this.idTypeCard = idTypeCard;
     }
 
     public int getIdPymentMethod() {
@@ -40,13 +36,5 @@ public class PymentMethod {
 
     public void setIdCodePurchase(PurchaseRequest idCodePurchase) {
         this.idCodePurchase = idCodePurchase;
-    }
-
-    public TypeCard getIdTypeCard() {
-        return idTypeCard;
-    }
-
-    public void setIdTypeCard(TypeCard idTypeCard) {
-        this.idTypeCard = idTypeCard;
     }
 }

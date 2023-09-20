@@ -3,7 +3,7 @@ package pe.edu.upc.aww.werecycle.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aww.werecycle.dtos.TypeUserDTO;
+import pe.edu.upc.aww.werecycle.dtos.RolesDTO;
 import pe.edu.upc.aww.werecycle.entities.Roles;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ITypeUserService;
 
@@ -17,17 +17,17 @@ public class TypeUserController {
     private ITypeUserService tS;
 
     @PostMapping
-    public void registrar(@RequestBody TypeUserDTO dto){
+    public void registrar(@RequestBody RolesDTO dto){
         ModelMapper m = new ModelMapper();
         Roles t = m.map(dto, Roles.class);
         tS.insert(t);
     }
 
     @GetMapping
-    public List<TypeUserDTO> listar(){
+    public List<RolesDTO> listar(){
         return tS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
-            return m.map(x,TypeUserDTO.class);
+            return m.map(x, RolesDTO.class);
         }).collect(Collectors.toList());
     }
 
