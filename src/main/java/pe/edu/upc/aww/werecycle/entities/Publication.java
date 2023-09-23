@@ -21,8 +21,9 @@ public class Publication {
     public Publication() {
     }
 
-    public Publication(int idPublication, TypeRecurso id_TypeRecurso, Useror idUser) {
+    public Publication(int idPublication, String title, TypeRecurso id_TypeRecurso, Useror idUser) {
         this.idPublication = idPublication;
+        this.title = title;
         this.id_TypeRecurso = id_TypeRecurso;
         this.idUser = idUser;
     }
@@ -33,6 +34,14 @@ public class Publication {
 
     public void setIdPublication(int idPublication) {
         this.idPublication = idPublication;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public TypeRecurso getId_TypeRecurso() {

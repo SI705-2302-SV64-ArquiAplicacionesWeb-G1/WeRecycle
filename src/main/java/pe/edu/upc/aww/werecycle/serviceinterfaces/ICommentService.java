@@ -9,4 +9,5 @@ public interface ICommentService {
 
     public List<Comment>list();
     public void delete(int idComment);
+    List<String[]>QuantityOfCommentsForPublication();
 }

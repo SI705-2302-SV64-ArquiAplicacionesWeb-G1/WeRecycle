@@ -6,6 +6,7 @@ import pe.edu.upc.aww.werecycle.entities.RecyclingCenter;
 import pe.edu.upc.aww.werecycle.repositories.IURecyclingCenterRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IURecyclingCenterService;
 
+import java.sql.Time;
 import java.util.List;
 
 @Service
@@ -26,5 +27,22 @@ public class RecyclingCenterServiceImplement implements IURecyclingCenterService
     @Override
     public void delete(int idRecyclingCenter) {
         rC.deleteById(idRecyclingCenter);
+    }
+
+    @Override
+    public List<RecyclingCenter> findRecyclingCenterByNameRecyclingCenter(String NameRecyclingCenter) {
+        return rC.findRecyclingCenterByNameRecyclingCenter(NameRecyclingCenter);
+    }
+
+
+
+    @Override
+    public List<RecyclingCenter> findRecyclingCenterByOpeninghourRecyclingCenter(Time openinghourRecyclingCenter) {
+        return rC.findRecyclingCenterByOpeninghourRecyclingCenter(openinghourRecyclingCenter);
+    }
+
+    @Override
+    public List<RecyclingCenter> findRecyclingCenterByClosingtimeRecyclingCenter(Time closingtimeRecyclingCenter) {
+        return null;
     }
 }

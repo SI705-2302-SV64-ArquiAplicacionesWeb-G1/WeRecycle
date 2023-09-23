@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class PublicationDTO {
 
     private int idPublication;
+    private String title;
 
     private TypeRecurso id_TypeRecurso;
 
@@ -20,6 +21,14 @@ public class PublicationDTO {
     public void setIdPublication(int idPublication) {
         this.idPublication = idPublication;
     }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 
     public TypeRecurso getId_TypeRecurso() {
         return id_TypeRecurso;
