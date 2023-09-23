@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.LikeDTO;
 
+import pe.edu.upc.aww.werecycle.dtos.QuantityOfLikeForPublicationDTO;
 import pe.edu.upc.aww.werecycle.entities.Likes;
 
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ILikeService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,4 +46,18 @@ public class LikeController {
         Likes u =m.map(dto, Likes.class);
         lS.insert(u);
     }
+
+    @GetMapping("/cantidaDeLikesPorPublicacion")
+    List<QuantityOfLikeForPublicationDTO>cantidaDeLikesPorPublicacion(){
+        List<String[]>mpLista = lS.QuantityOfLikeForPublication();
+        List<QuantityOfLikeForPublicationDTO> mpListaDTO =new ArrayList<>();
+        for (String[]data: mpLista){
+            QuantityOfLikeForPublicationDTO mpDTO = new QuantityOfLikeForPublicationDTO();
+            mpDTO.setQuantityOfLikes(Integer.parseInt(data[0]));
+            mpDTO.setNamePublication(data[1]);
+            mpListaDTO.add(mpDTO);
+        }
+        return mpListaDTO;
+    }
+
 }

@@ -26,4 +26,9 @@ public class CommentServiceImplement implements ICommentService {
     public void delete(int idComment) {
         cR.deleteById(idComment);
     }
+
+    @Override
+    public List<String[]> QuantityOfCommentsForPublication() {
+        return cR.QuantityOfCommentsForPublication();
+    }
 }

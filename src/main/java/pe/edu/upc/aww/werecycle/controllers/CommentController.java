@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.CommentDTO;
 
+import pe.edu.upc.aww.werecycle.dtos.QuantityOfCommentsForPublicationDTO;
 import pe.edu.upc.aww.werecycle.entities.Comment;
 
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ICommentService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,5 +43,17 @@ public class CommentController {
         ModelMapper m = new ModelMapper();
         Comment u =m.map(dto,Comment.class);
         cS.insert(u);
+    }
+    @GetMapping("/cantidaDeComentariosPorPublicacion")
+    List<QuantityOfCommentsForPublicationDTO>cantidaDeComentariosPorPublicacion(){
+        List<String[]>mpLista = cS.QuantityOfCommentsForPublication();
+        List<QuantityOfCommentsForPublicationDTO> mpListaDTO =new ArrayList<>();
+        for (String[]data: mpLista){
+            QuantityOfCommentsForPublicationDTO mpDTO = new QuantityOfCommentsForPublicationDTO();
+            mpDTO.setQuantityOfComments(Integer.parseInt(data[0]));
+            mpDTO.setNamePublication(data[1]);
+            mpListaDTO.add(mpDTO);
+        }
+        return mpListaDTO;
     }
 }

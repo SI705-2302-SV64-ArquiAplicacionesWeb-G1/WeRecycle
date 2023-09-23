@@ -29,4 +29,11 @@ public class LikeServiceImplement implements ILikeService {
     public void delete(int idLike) {
         lR.deleteById(idLike);
     }
+
+    @Override
+    public List<String[]> QuantityOfLikeForPublication() {
+        return lR.QuantityOfLikeForPublication();
+    }
+
+
 }

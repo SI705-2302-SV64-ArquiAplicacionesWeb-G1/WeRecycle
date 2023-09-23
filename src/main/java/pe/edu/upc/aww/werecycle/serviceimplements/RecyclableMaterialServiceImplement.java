@@ -27,4 +27,14 @@ public class RecyclableMaterialServiceImplement implements IURecyclableMaterialS
     public void delete(int idRecyclableMaterial) {
 rM.deleteById(idRecyclableMaterial);
     }
+
+    @Override
+    public List<RecyclableMaterial> findRecyclableMaterialByNameRecyclableMaterial(String NameRecyclableMaterial) {
+        return rM.findRecyclableMaterialByNameRecyclableMaterial(NameRecyclableMaterial);
+    }
+
+    @Override
+    public List<RecyclableMaterial> findRecyclableMaterialByTypeRecyclableMaterial(String TypeRecyclableMaterial) {
+        return rM.findRecyclableMaterialByTypeRecyclableMaterial(TypeRecyclableMaterial);
+    }
 }
