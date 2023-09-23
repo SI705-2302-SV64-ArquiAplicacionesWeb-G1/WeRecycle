@@ -27,4 +27,31 @@ public class NotificationServiceImplement implements IUNotificationService {
     public void delete(int idNotification) {
     nO.deleteById(idNotification);
     }
+
+    @Override
+    public List<Notification> findByNotifationEvent() {
+        return nO.findByTypeNotification("evento");
+    }
+
+    @Override
+    public List<Notification> findByNotificationReminder() {
+        return nO.findByTypeNotification("recordatorio");
+    }
+
+    @Override
+    public List<Notification> findByNotificationLike() {
+        return nO.findByTypeNotification("like");
+    }
+
+    @Override
+    public List<Notification> findByNotificationComment() {
+        return nO.findByTypeNotification("comentario");
+    }
+
+    @Override
+    public List<Notification> findByNotificationInvitation() {
+        return nO.findByTypeNotification("invitacion");
+    }
+
+
 }
