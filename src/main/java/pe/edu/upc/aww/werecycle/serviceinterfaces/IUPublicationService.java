@@ -14,4 +14,5 @@ public interface IUPublicationService {
     List<Publication> findBydatePublication(LocalDate datePublication);
     List<Publication> findBytitle(String title);
     public List<Publication> findByPublicationByType(@Param("type") String typeRecursotype);
+    Integer CountPublicationByType();
 }

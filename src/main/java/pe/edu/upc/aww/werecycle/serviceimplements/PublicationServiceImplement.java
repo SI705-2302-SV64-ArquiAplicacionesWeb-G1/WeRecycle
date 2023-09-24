@@ -44,5 +44,10 @@ public class PublicationServiceImplement implements IUPublicationService {
         return pU.findByPublicationByType(typeRecursotype);
     }
 
+    @Override
+    public Integer CountPublicationByType() {
+        return pU.CountPublicationByType();
+    }
+
 
 }

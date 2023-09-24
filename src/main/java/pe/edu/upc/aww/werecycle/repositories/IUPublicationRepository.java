@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.aww.werecycle.entities.Publication;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,5 +19,11 @@ public interface IUPublicationRepository extends JpaRepository<Publication, Inte
             "JOIN type_recurso tr ON p.id_type_recurso = tr.id_type_recurso " +
             "WHERE tr.type_recursotype = :type", nativeQuery = true)
     public List<Publication> findByPublicationByType(@Param("type") String typeRecursotype);
+
+    @Query(value = "SELECT COUNT(*) \n" +
+            "FROM publication p\n" +
+            "JOIN type_recurso tr ON p.id_type_recurso = tr.id_type_recurso\n" +
+            "WHERE tr.type_recursotype = 'video';", nativeQuery = true)
+    Integer CountPublicationByType();
 
 }

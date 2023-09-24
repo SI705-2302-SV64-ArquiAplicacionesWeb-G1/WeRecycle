@@ -70,4 +70,9 @@ public class PublicationController {
         }).collect(Collectors.toList());
     }
 
+    @GetMapping("/cantidaTypeVideo")
+    public Integer cantidadPublicacionVideo(){
+        return pU.CountPublicationByType();
+    }
+
 }
