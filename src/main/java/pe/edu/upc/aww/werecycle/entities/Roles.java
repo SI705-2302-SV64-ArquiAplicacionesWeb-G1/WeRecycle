@@ -1,10 +1,12 @@
 package pe.edu.upc.aww.werecycle.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "Roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "idUser", "typeAccount" }) })
 public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,16 +16,20 @@ public class Roles {
     @Column(name = "stateType", nullable = false)
     private boolean stateType;
 
+    @ManyToOne()
+    @JsonIgnore
+    @JoinColumn(name = "idUser")
+    private Useror useror;
+
     public Roles() {
     }
 
-    public Roles(int idTypeUser, String typeAccount, boolean stateType, List<Useror> idUser) {
+    public Roles(int idTypeUser, String typeAccount, boolean stateType, Useror useror) {
         this.idTypeUser = idTypeUser;
         this.typeAccount = typeAccount;
         this.stateType = stateType;
-
+        this.useror = useror;
     }
-
     public int getIdTypeUser() {
         return idTypeUser;
     }
@@ -48,5 +54,11 @@ public class Roles {
         this.stateType = stateType;
     }
 
+    public Useror getUseror() {
+        return useror;
+    }
 
+    public void setUseror(Useror useror) {
+        this.useror = useror;
+    }
 }

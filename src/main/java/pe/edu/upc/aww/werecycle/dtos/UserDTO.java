@@ -19,7 +19,7 @@ public class UserDTO {
 
     private LocalDate userAge;
 
-    private Roles roles;
+    private Boolean enabled;
 
     private Ubication ubicationUser;
 
@@ -65,12 +65,12 @@ public class UserDTO {
         this.userAge = userAge;
     }
 
-    public Roles getRoles() {
-        return roles;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRoles(Roles roles) {
-        this.roles = roles;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Ubication getUbicationUser() {
