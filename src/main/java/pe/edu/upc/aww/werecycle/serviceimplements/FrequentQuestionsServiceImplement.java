@@ -29,4 +29,11 @@ public class FrequentQuestionsServiceImplement implements IFrequentQuestionsServ
     public void delete(int idFrequenQuestions) {
 fqR.deleteById(idFrequenQuestions);
     }
+
+    @Override
+    public List<FrequentQuestions> findBycategory(String category) {
+        return fqR.findBycategory(category);
+    }
+
+
 }
