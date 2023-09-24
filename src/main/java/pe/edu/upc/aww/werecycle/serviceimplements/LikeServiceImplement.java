@@ -2,6 +2,7 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.aww.werecycle.dtos.PublicationLikesDTO;
 import pe.edu.upc.aww.werecycle.entities.Likes;
 import pe.edu.upc.aww.werecycle.repositories.IlikeRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ILikeService;
@@ -34,6 +35,7 @@ public class LikeServiceImplement implements ILikeService {
     public List<String[]> QuantityOfLikeForPublication() {
         return lR.QuantityOfLikeForPublication();
     }
+
 
 
 }

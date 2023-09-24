@@ -78,7 +78,7 @@ public class PublicationController {
     }
 
 
-    @GetMapping("/Publicacion-con-ma-like")
+    @GetMapping("/Publicacion-con-mas-like")
     public List<PublicationLikesDTO> findPublicationWithMostLikes() {
         return pU.findPublicationsWithMostLikes().stream().map(x -> {
             ModelMapper m = new ModelMapper();
