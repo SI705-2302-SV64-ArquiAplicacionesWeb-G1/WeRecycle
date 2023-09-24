@@ -10,4 +10,5 @@ public interface ILikeService {
     public List<Likes>list();
     public void delete(int idLike);
 
+    List<String[]>QuantityOfLikeForPublication();
 }
