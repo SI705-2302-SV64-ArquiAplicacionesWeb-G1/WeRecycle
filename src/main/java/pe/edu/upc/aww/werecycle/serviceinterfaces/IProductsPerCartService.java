@@ -8,4 +8,6 @@ public interface IProductsPerCartService {
     public void insert(ProductsPerCart productsPerCart);
     public List<ProductsPerCart>list();
     public void delete(int idProductsPerCart);
+    Integer sumProductPerCart();
+
 }
