@@ -1,6 +1,7 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
 
+import pe.edu.upc.aww.werecycle.entities.Useror;
 
 public class RolesDTO {
 
@@ -11,6 +12,7 @@ public class RolesDTO {
 
     private boolean stateType;
 
+    private Useror useror;
 
 
     public int getIdTypeUser() {
