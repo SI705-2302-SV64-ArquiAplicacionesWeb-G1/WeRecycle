@@ -15,15 +15,29 @@ public class RecyclableMaterial {
     @Column(name = "typeRecyclableMaterial",nullable = false,length = 35)
     private String typeRecyclableMaterial;
 
-    public RecyclableMaterial() {
-    }
+    @Column(name= "cost", nullable = false)
+    private int costMaterial;
 
-    public RecyclableMaterial(int idRecyclableMaterial, String nameRecyclableMaterial, String descriptionRecyclableMaterial, String typeRecyclableMaterial) {
+    public RecyclableMaterial(int idRecyclableMaterial, String nameRecyclableMaterial, String descriptionRecyclableMaterial, String typeRecyclableMaterial, int costMaterial) {
         this.idRecyclableMaterial = idRecyclableMaterial;
         this.nameRecyclableMaterial = nameRecyclableMaterial;
         this.descriptionRecyclableMaterial = descriptionRecyclableMaterial;
         this.typeRecyclableMaterial = typeRecyclableMaterial;
+        this.costMaterial = costMaterial;
     }
+
+    public int getCostMaterial() {
+        return costMaterial;
+    }
+
+    public void setCostMaterial(int costMaterial) {
+        this.costMaterial = costMaterial;
+    }
+
+    public RecyclableMaterial() {
+    }
+
+
 
     public int getIdRecyclableMaterial() {
         return idRecyclableMaterial;

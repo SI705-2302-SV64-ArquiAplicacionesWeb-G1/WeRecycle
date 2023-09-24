@@ -17,7 +17,7 @@ public class Roles {
     public Roles() {
     }
 
-    public Roles(int idTypeUser, String typeAccount, boolean stateType, List<Useror> idUser) {
+    public Roles(int idTypeUser, String typeAccount, boolean stateType) {
         this.idTypeUser = idTypeUser;
         this.typeAccount = typeAccount;
         this.stateType = stateType;

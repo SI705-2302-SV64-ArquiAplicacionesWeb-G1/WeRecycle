@@ -2,10 +2,15 @@ package pe.edu.upc.aww.werecycle.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import pe.edu.upc.aww.werecycle.dtos.UserDTO;
 import pe.edu.upc.aww.werecycle.entities.Useror;
+import pe.edu.upc.aww.werecycle.serviceimplements.EventsServiceImplement;
+import pe.edu.upc.aww.werecycle.serviceinterfaces.IEventsService;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUserService;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +20,8 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private IUserService uS;
+    /*@Autowired
+    private EventsServiceImplement eS;*/
     @PostMapping
     public void registrar(@RequestBody UserDTO dto){
         ModelMapper m = new ModelMapper();
@@ -28,6 +35,12 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/user-por-id/{id}")
+    public UserDTO findById(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        UserDTO dto=m.map(uS.findById(id),UserDTO.class);
+        return dto;
+    }
     @DeleteMapping("/{idUser}")
     public void eliminar(@PathVariable ("idUser") Integer idUser){
         uS.delete(idUser);
@@ -38,4 +51,24 @@ public class UserController {
         Useror u =m.map(dto,Useror.class);
         uS.insert(u);
     }
+
+    @GetMapping("/user/{userName}")
+    public List<UserDTO> findByUserName (@PathVariable("userName") String userName){
+        return uS.findByUserName(userName).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, UserDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+  /* @PostMapping("/{userId}/follow-event/{eventId}")
+    public  ResponseEntity<String> followEvent(@PathVariable int userId, @PathVariable int eventId) {
+        eS.followEvent(userId, eventId);
+        return ResponseEntity.ok("Usuario ha seguido el evento exitosamente.");
+    }
+
+    @PostMapping("/{userId}/unfollow-event/{eventId}")
+    public ResponseEntity<String> unfollowEvent(@PathVariable int userId, @PathVariable int eventId) {
+        eS.unfollowEvent(userId, eventId);
+        return ResponseEntity.ok("Usuario ha dejado de seguir el evento exitosamente.");
+    }*/
 }

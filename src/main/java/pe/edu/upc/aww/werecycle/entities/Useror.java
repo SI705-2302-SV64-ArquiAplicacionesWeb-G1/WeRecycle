@@ -2,6 +2,8 @@ package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -25,6 +27,26 @@ public class Useror  {
     @JoinColumn(name = "idUbication")
     private Ubication ubicationUser;
 
+
+
+   /* @ManyToMany
+    @JoinTable(
+        name = "Useror_Events", // Nombre de la tabla de relación
+        joinColumns = @JoinColumn(name = "user_id"), // Columna que hace referencia a Useror
+        inverseJoinColumns = @JoinColumn(name = "event_id") // Columna que hace referencia a Events
+    )*/
+
+
+    //private Set<Events> followedEvents = new HashSet<>();
+
+   /* public Set<Events> getFollowedEvents() {
+        return followedEvents;
+    }
+
+    public void setFollowedEvents(Set<Events> followedEvents) {
+        this.followedEvents = followedEvents;
+    }
+*/
     public Useror() {
     }
 
@@ -36,6 +58,7 @@ public class Useror  {
         this.userAge = userAge;
         this.roles = roles;
         this.ubicationUser = ubicationUser;
+        //this.followedEvents = followedEvents;
     }
 
     public int getIdUser() {
@@ -93,4 +116,13 @@ public class Useror  {
     public void setUbicationUser(Ubication ubicationUser) {
         this.ubicationUser = ubicationUser;
     }
+
+  /*  public Events getIdEvent(){
+        return idEvent;
+    }
+
+    public void setIdEvent(int idEvent)
+    {
+        this.idEvent=idEvent;
+    }*/
 }

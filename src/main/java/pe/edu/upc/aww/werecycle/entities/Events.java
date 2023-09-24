@@ -2,6 +2,8 @@ package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Events")
@@ -13,29 +15,41 @@ public class Events {
 
     @Column(name = "title", length = 100,nullable = false)
     private String title;
-    @Column(name = "Date",nullable = false)
-    private LocalDate Date;
-    @Column(name = "Description",nullable = false,length = 200)
-    private String Description;
+    @Column(name = "date",nullable = false)
+    private LocalDate date;
+    @Column(name = "description",nullable = false,length = 200)
+    private String description;
 
-    @Column(name = "NumberParticipant", nullable = false)
-    private int NumberParticipant;
+    @Column(name = "numberParticipant", nullable = false)
+    private int numberParticipant;
 
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication idUbication;
 
-    public Events() {
-    }
+    /*@ManyToMany(mappedBy = "followedEvents")
+    private Set<Useror> followers = new HashSet<>();*/
 
     public Events(int idEvent, String title, LocalDate date, String description, int numberParticipant, Ubication idUbication) {
         this.idEvent = idEvent;
         this.title = title;
-        Date = date;
-        Description = description;
-        NumberParticipant = numberParticipant;
+        this.date = date;
+        this.description = description;
+        this.numberParticipant = numberParticipant;
         this.idUbication = idUbication;
+       // this.followers = followers;
     }
+    /*public Set<Useror> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<Useror> followers) {
+        this.followers = followers;
+    }*/
+
+    public Events() {
+    }
+
 
     public String getTitle() {
         return title;
@@ -54,27 +68,27 @@ public class Events {
     }
 
     public LocalDate getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(LocalDate date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public int getNumberParticipant() {
-        return NumberParticipant;
+        return numberParticipant;
     }
 
     public void setNumberParticipant(int numberParticipant) {
-        NumberParticipant = numberParticipant;
+        this.numberParticipant = numberParticipant;
     }
 
     public Ubication getIdUbication() {

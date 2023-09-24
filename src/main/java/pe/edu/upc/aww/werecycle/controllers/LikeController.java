@@ -44,4 +44,5 @@ public class LikeController {
         Likes u =m.map(dto, Likes.class);
         lS.insert(u);
     }
+
 }

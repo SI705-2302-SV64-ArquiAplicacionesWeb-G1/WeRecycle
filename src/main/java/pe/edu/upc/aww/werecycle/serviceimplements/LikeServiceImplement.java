@@ -29,4 +29,5 @@ public class LikeServiceImplement implements ILikeService {
     public void delete(int idLike) {
         lR.deleteById(idLike);
     }
+
 }

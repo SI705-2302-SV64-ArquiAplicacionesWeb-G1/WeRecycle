@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aww.werecycle.dtos.EventsDTO;
 import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
+import pe.edu.upc.aww.werecycle.dtos.PublicationLikesDTO;
 import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUPublicationService;
 
@@ -32,14 +34,24 @@ public class PublicationController {
             return m.map(x, PublicationDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{idPublication}")
-    public void eliminar(@PathVariable("idPublication")Integer idPublication){
+    public void eliminar(@PathVariable("idPublication") Integer idPublication) {
         pU.delete(idPublication);
     }
+
     @PutMapping
-    public void modificar(@RequestBody PublicationDTO dto){
+    public void modificar(@RequestBody PublicationDTO dto) {
         ModelMapper m = new ModelMapper();
-        Publication p = m.map(dto,Publication.class);
+        Publication p = m.map(dto, Publication.class);
         pU.insert(p);
+    }
+
+    @GetMapping("/Publicacion-con-ma-like")
+    public List<PublicationLikesDTO> findPublicationWithMostLikes() {
+        return pU.findPublicationsWithMostLikes().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PublicationLikesDTO.class);
+        }).collect(Collectors.toList());
     }
 }

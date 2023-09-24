@@ -1,5 +1,4 @@
 package pe.edu.upc.aww.werecycle.serviceimplements;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aww.werecycle.entities.Useror;
@@ -12,6 +11,8 @@ import java.util.List;
 public class UserServiceImplement implements IUserService {
     @Autowired
     private IUserRepository uR;
+
+    //private EventsRepository eR;
     @Override
     public void insert(Useror user) {
         uR.save(user);
@@ -26,4 +27,16 @@ public class UserServiceImplement implements IUserService {
     public void delete(int idUser) {
         uR.deleteById(idUser);
     }
+
+    @Override
+    public List<Useror> findByUserName(String userName)
+    {
+        return uR.findByUserName(userName);
+    }
+
+    @Override
+    public Useror findById(int id) {
+        return uR.findById(id).orElse(new Useror());
+    }
+
 }
