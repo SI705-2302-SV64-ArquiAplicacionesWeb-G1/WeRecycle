@@ -9,18 +9,12 @@ public class TypeRecurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTypeRecurso;
     @Column(name = "TypeRecursotype")
-    private String type;
+    private String typeRecursotype;
     @OneToOne
     @JoinColumn(name = "id_Recurso")
     private Recurso id_Recurso;
 
     public TypeRecurso() {
-    }
-
-    public TypeRecurso(int idTypeRecurso, String type, Recurso id_Recurso) {
-        this.idTypeRecurso = idTypeRecurso;
-        this.type = type;
-        this.id_Recurso = id_Recurso;
     }
 
     public int getIdTypeRecurso() {
@@ -31,12 +25,12 @@ public class TypeRecurso {
         this.idTypeRecurso = idTypeRecurso;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeRecursotype() {
+        return typeRecursotype;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeRecursotype(String typeRecursotype) {
+        this.typeRecursotype = typeRecursotype;
     }
 
     public Recurso getId_Recurso() {

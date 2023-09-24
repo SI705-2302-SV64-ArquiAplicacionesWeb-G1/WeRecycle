@@ -4,11 +4,13 @@ import pe.edu.upc.aww.werecycle.entities.TypeRecurso;
 import pe.edu.upc.aww.werecycle.entities.Useror;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 public class PublicationDTO {
 
     private int idPublication;
     private String title;
+    private LocalDate datePublication;
 
     private TypeRecurso id_TypeRecurso;
 
@@ -21,6 +23,7 @@ public class PublicationDTO {
     public void setIdPublication(int idPublication) {
         this.idPublication = idPublication;
     }
+
     public String getTitle() {
         return title;
     }
@@ -29,6 +32,13 @@ public class PublicationDTO {
         this.title = title;
     }
 
+    public LocalDate getDatePublication() {
+        return datePublication;
+    }
+
+    public void setDatePublication(LocalDate datePublication) {
+        this.datePublication = datePublication;
+    }
 
     public TypeRecurso getId_TypeRecurso() {
         return id_TypeRecurso;
