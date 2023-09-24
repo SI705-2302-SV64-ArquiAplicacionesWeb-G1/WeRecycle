@@ -4,7 +4,7 @@ import pe.edu.upc.aww.werecycle.entities.Recurso;
 
 public class TypeRecursoDTO {
     private int idTypeRecurso;
-    private String type;
+    private String typeRecursotype;
     private Recurso id_Recurso;
 
     public int getIdTypeRecurso() {
@@ -15,12 +15,12 @@ public class TypeRecursoDTO {
         this.idTypeRecurso = idTypeRecurso;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeRecursotype() {
+        return typeRecursotype;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeRecursotype(String typeRecursotype) {
+        this.typeRecursotype = typeRecursotype;
     }
 
     public Recurso getId_Recurso() {

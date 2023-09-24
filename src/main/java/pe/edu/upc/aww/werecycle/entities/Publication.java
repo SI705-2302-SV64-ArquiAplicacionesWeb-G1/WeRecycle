@@ -1,6 +1,7 @@
 package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Publication")
@@ -11,6 +12,8 @@ public class Publication {
 
     @Column(name = "title",length = 100,nullable = false)
     private String title;
+    @Column(name = "datePublication",nullable = false)
+    private LocalDate datePublication;
     @OneToOne
     @JoinColumn(name = "id_TypeRecurso")
     private TypeRecurso id_TypeRecurso;
@@ -21,9 +24,10 @@ public class Publication {
     public Publication() {
     }
 
-    public Publication(int idPublication, String title, TypeRecurso id_TypeRecurso, Useror idUser) {
+    public Publication(int idPublication, String title, LocalDate datePublication, TypeRecurso id_TypeRecurso, Useror idUser) {
         this.idPublication = idPublication;
         this.title = title;
+        this.datePublication = datePublication;
         this.id_TypeRecurso = id_TypeRecurso;
         this.idUser = idUser;
     }
@@ -58,5 +62,13 @@ public class Publication {
 
     public void setIdUser(Useror idUser) {
         this.idUser = idUser;
+    }
+
+    public LocalDate getDatePublication() {
+        return datePublication;
+    }
+
+    public void setDatePublication(LocalDate datePublication) {
+        this.datePublication = datePublication;
     }
 }

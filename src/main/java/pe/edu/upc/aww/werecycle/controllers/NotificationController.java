@@ -41,4 +41,44 @@ public class NotificationController {
         Notification n = m.map(dto,Notification.class);
         nO.insert(n);
     }
+
+    @GetMapping("/typeEvent")
+    public List<NotificationDTO>bucarNotEvento() {
+        return nO.findByNotifationEvent().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NotificationDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/typeReminder")
+    public List<NotificationDTO>bucarNotRecordatorio() {
+        return nO.findByNotificationReminder().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NotificationDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/typeLike")
+    public List<NotificationDTO>bucarNotLike() {
+        return nO.findByNotificationLike().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NotificationDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/typeCommet")
+    public List<NotificationDTO>bucarNotComentario() {
+        return nO.findByNotificationComment().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NotificationDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/typeInvitacion")
+    public List<NotificationDTO>bucarNotInvitacion() {
+        return nO.findByNotificationInvitation().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NotificationDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
