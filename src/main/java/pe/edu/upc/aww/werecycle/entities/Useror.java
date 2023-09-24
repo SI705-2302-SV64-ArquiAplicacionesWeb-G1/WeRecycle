@@ -1,7 +1,10 @@
 package pe.edu.upc.aww.werecycle.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,45 +23,27 @@ public class Useror  {
     private String userEmail;
     @Column(name = "userAge",nullable = false)
     private LocalDate userAge;
-    @ManyToOne
-    @JoinColumn(name = "idRol")
-    private Roles roles;
+    private Boolean enabled;
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinColumn(name="idUser")
+    private List<Roles> roles;
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication ubicationUser;
 
-
-
-   /* @ManyToMany
-    @JoinTable(
-        name = "Useror_Events", // Nombre de la tabla de relación
-        joinColumns = @JoinColumn(name = "user_id"), // Columna que hace referencia a Useror
-        inverseJoinColumns = @JoinColumn(name = "event_id") // Columna que hace referencia a Events
-    )*/
-
-
-    //private Set<Events> followedEvents = new HashSet<>();
-
-   /* public Set<Events> getFollowedEvents() {
-        return followedEvents;
-    }
-
-    public void setFollowedEvents(Set<Events> followedEvents) {
-        this.followedEvents = followedEvents;
-    }
-*/
     public Useror() {
     }
 
-    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, Roles roles, Ubication ubicationUser) {
+    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, Boolean enabled, List<Roles> roles, Ubication ubicationUser) {
         this.idUser = idUser;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userAge = userAge;
+        this.enabled = enabled;
         this.roles = roles;
         this.ubicationUser = ubicationUser;
-        //this.followedEvents = followedEvents;
     }
 
     public int getIdUser() {
@@ -101,11 +86,19 @@ public class Useror  {
         this.userAge = userAge;
     }
 
-    public Roles getRoles() {
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Roles> getRoles() {
         return roles;
     }
 
-    public void setRoles(Roles roles) {
+    public void setRoles(List<Roles> roles) {
         this.roles = roles;
     }
 
@@ -116,13 +109,4 @@ public class Useror  {
     public void setUbicationUser(Ubication ubicationUser) {
         this.ubicationUser = ubicationUser;
     }
-
-  /*  public Events getIdEvent(){
-        return idEvent;
-    }
-
-    public void setIdEvent(int idEvent)
-    {
-        this.idEvent=idEvent;
-    }*/
 }

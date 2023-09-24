@@ -2,15 +2,13 @@ package pe.edu.upc.aww.werecycle.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import pe.edu.upc.aww.werecycle.dtos.UserDTO;
 import pe.edu.upc.aww.werecycle.entities.Useror;
 import pe.edu.upc.aww.werecycle.serviceimplements.EventsServiceImplement;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IEventsService;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUserService;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,8 +18,6 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private IUserService uS;
-    /*@Autowired
-    private EventsServiceImplement eS;*/
     @PostMapping
     public void registrar(@RequestBody UserDTO dto){
         ModelMapper m = new ModelMapper();
@@ -29,6 +25,7 @@ public class UserController {
         uS.insert(u);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<UserDTO>listar() {
         return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
