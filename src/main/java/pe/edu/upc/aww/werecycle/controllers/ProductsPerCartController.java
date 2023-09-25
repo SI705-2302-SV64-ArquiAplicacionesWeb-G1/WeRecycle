@@ -33,4 +33,7 @@ public class ProductsPerCartController {
         ppCS.delete(idProducsPerCart);
     }
 
+    @GetMapping("/Sumaproductosporcarrito")
+    public Integer Sumaproductosporcarrito() {return  ppCS.sumProductPerCart();}
+
 }

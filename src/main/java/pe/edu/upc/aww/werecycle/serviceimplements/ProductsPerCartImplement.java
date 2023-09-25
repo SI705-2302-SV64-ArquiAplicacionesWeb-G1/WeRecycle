@@ -26,4 +26,9 @@ public class ProductsPerCartImplement implements IProductsPerCartService {
     public void delete(int idProductsPerCart) {
         ppCR.deleteById(idProductsPerCart);
     }
+
+    @Override
+    public Integer sumProductPerCart() {
+        return ppCR.sumProductPerCart();
+    }
 }
