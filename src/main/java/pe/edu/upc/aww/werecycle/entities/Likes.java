@@ -13,8 +13,6 @@ public class Likes {
     @JoinColumn(name = "idPublication")
     private Publication idPublication;
 
-    @Column(name = "countLikes",nullable = false)
-    private int countLikes;
 
     public Likes() {
     }
@@ -22,7 +20,6 @@ public class Likes {
     public Likes(int idLike, Publication idPublication, int countLikes) {
         this.idLike = idLike;
         this.idPublication = idPublication;
-        this.countLikes = countLikes;
     }
 
     public int getIdLike() {
@@ -41,11 +38,4 @@ public class Likes {
         this.idPublication = idPublication;
     }
 
-    public int getCountLikes() {
-        return countLikes;
-    }
-
-    public void setCountLikes(int countLikes) {
-        this.countLikes = countLikes;
-    }
 }

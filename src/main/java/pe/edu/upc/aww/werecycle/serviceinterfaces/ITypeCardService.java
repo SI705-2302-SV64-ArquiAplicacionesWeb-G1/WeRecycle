@@ -1,6 +1,5 @@
 package pe.edu.upc.aww.werecycle.serviceinterfaces;
 
-import pe.edu.upc.aww.werecycle.entities.Assessment;
 import pe.edu.upc.aww.werecycle.entities.TypeCard;
 
 import java.util.List;
