@@ -23,12 +23,10 @@ public class UserDTO {
 
     private Ubication ubicationUser;
 
+    private int idEvent;
     public int getIdEvent() {
         return idEvent;
     }
-
-    private int idEvent;
-
     public int getIdUser() {
         return idUser;
     }

@@ -6,8 +6,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.UserDTO;
 import pe.edu.upc.aww.werecycle.entities.Useror;
-import pe.edu.upc.aww.werecycle.serviceimplements.EventsServiceImplement;
-import pe.edu.upc.aww.werecycle.serviceinterfaces.IEventsService;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUserService;
 
 import java.util.List;

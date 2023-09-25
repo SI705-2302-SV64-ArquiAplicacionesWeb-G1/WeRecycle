@@ -3,12 +3,9 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aww.werecycle.entities.Events;
-import pe.edu.upc.aww.werecycle.entities.Useror;
 import pe.edu.upc.aww.werecycle.repositories.IEventsRepository;
-import pe.edu.upc.aww.werecycle.repositories.IUserRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IEventsService;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,8 +14,6 @@ public class EventsServiceImplement implements IEventsService {
     @Autowired
     private IEventsRepository eR;
 
-   @Autowired
-    private IUserRepository uR;
 
     @Override
     public void insert(Events events) {
