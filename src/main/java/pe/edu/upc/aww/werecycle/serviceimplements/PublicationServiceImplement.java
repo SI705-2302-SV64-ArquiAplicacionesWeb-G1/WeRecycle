@@ -2,12 +2,16 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
+import pe.edu.upc.aww.werecycle.dtos.PublicationLikesDTO;
+import pe.edu.upc.aww.werecycle.entities.Likes;
 import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.repositories.IUPublicationRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUPublicationService;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PublicationServiceImplement implements IUPublicationService {
@@ -47,6 +51,13 @@ public class PublicationServiceImplement implements IUPublicationService {
     @Override
     public Integer CountPublicationByType() {
         return pU.CountPublicationByType();
+    }
+
+
+
+    @Override
+    public List<PublicationLikesDTO> findPublicationsWithMostLikes() {
+        return pU.findPublicationLikesDTOWithMostLikes();
     }
 
 

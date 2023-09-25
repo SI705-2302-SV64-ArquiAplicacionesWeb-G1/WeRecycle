@@ -1,50 +1,58 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
 import pe.edu.upc.aww.werecycle.entities.Ubication;
+import pe.edu.upc.aww.werecycle.entities.Useror;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EventsDTO {
     private int idEvent;
-    private LocalDate Date;
-    private String Description;
+    private LocalDate date;
+    private String description;
 
-    private int NumberParticipant;
+    private int numberParticipant;
     private Ubication idUbication;
+    private String title;
 
-    public int getIdEvent() {
-        return idEvent;
+    public String getTitle() {
+        return title;
     }
 
-    public void setIdEvent(int idEvent) {
-        this.idEvent = idEvent;
+    public void setTitle(String title) {
+        this.title = title;
     }
+
+    /*public Set<Useror> getFollowers() {
+        return followers;
+    }*/
 
     public LocalDate getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(LocalDate date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public int getNumberParticipant() {
-        return NumberParticipant;
+        return numberParticipant;
     }
 
     public void setNumberParticipant(int numberParticipant) {
-        NumberParticipant = numberParticipant;
+        this.numberParticipant = numberParticipant;
     }
 
     public Ubication getIdUbication() {
@@ -54,4 +62,20 @@ public class EventsDTO {
     public void setIdUbication(Ubication idUbication) {
         this.idUbication = idUbication;
     }
+
+   /* public void setFollowers(Set<Useror> followers) {
+        this.followers = followers;
+    }*/
+
+   // private Set<Useror> followers = new HashSet<>();
+
+    public int getIdEvent() {
+        return idEvent;
+    }
+
+    public void setIdEvent(int idEvent) {
+        this.idEvent = idEvent;
+    }
+
+
 }

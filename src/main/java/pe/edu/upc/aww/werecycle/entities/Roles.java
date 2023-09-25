@@ -30,6 +30,7 @@ public class Roles {
         this.stateType = stateType;
         this.useror = useror;
     }
+
     public int getIdTypeUser() {
         return idTypeUser;
     }

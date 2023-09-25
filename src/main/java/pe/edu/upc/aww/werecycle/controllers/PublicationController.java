@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aww.werecycle.dtos.EventsDTO;
 import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
+import pe.edu.upc.aww.werecycle.dtos.PublicationLikesDTO;
 import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUPublicationService;
 
@@ -75,4 +77,12 @@ public class PublicationController {
         return pU.CountPublicationByType();
     }
 
+
+    @GetMapping("/Publicacion-con-mas-like")
+    public List<PublicationLikesDTO> findPublicationWithMostLikes() {
+        return pU.findPublicationsWithMostLikes().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PublicationLikesDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

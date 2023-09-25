@@ -17,7 +17,7 @@ public class Ubication {
     @Column(name = "cityUbication", nullable = false, length = 50)
     private String cityUbication;
     @Column(name = "contactUbication", nullable = false, length = 9)
-    private String contactUbication;
+    private int contactUbication;
     @Column(name = "typeUbication", nullable = false, length = 15)
     private String typeUbication;
     @Column(name = "descUbication", nullable = false, length = 50)
@@ -26,7 +26,7 @@ public class Ubication {
     public Ubication() {
     }
 
-    public Ubication(int idUbication, LocalDate ubicationDate, String addressUbication, String cityUbication, String contactUbication, String typeUbication, String descUbication) {
+    public Ubication(int idUbication, LocalDate ubicationDate, String addressUbication, String cityUbication, int contactUbication, String typeUbication, String descUbication) {
         this.idUbication = idUbication;
         this.ubicationDate = ubicationDate;
         this.addressUbication = addressUbication;
@@ -68,11 +68,11 @@ public class Ubication {
         this.cityUbication = cityUbication;
     }
 
-    public String getContactUbication() {
+    public int getContactUbication() {
         return contactUbication;
     }
 
-    public void setContactUbication(String contactUbication) {
+    public void setContactUbication(int contactUbication) {
         this.contactUbication = contactUbication;
     }
 

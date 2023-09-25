@@ -23,8 +23,10 @@ public class UserDTO {
 
     private Ubication ubicationUser;
 
-
-
+    private int idEvent;
+    public int getIdEvent() {
+        return idEvent;
+    }
     public int getIdUser() {
         return idUser;
     }
@@ -79,5 +81,10 @@ public class UserDTO {
 
     public void setUbicationUser(Ubication ubicationUser) {
         this.ubicationUser = ubicationUser;
+    }
+
+    public void setIdEvent(int idEvent)
+    {
+        this.idEvent=idEvent;
     }
 }

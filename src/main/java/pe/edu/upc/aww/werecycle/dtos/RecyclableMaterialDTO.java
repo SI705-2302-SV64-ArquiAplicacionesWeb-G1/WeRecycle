@@ -11,6 +11,15 @@ public class RecyclableMaterialDTO {
     private String nameRecyclableMaterial;
     private String descriptionRecyclableMaterial;
     private String typeRecyclableMaterial;
+    private int costMaterial;
+
+    public int getCostMaterial() {
+        return costMaterial;
+    }
+
+    public void setCostMaterial(int costMaterial) {
+        this.costMaterial = costMaterial;
+    }
 
     public int getIdRecyclableMaterial() {
         return idRecyclableMaterial;

@@ -16,7 +16,7 @@ public class UbicationDTO {
 
     private String cityUbication;
 
-    private String contactUbication;
+    private int contactUbication;
 
     private String typeUbication;
 
@@ -54,11 +54,11 @@ public class UbicationDTO {
         this.cityUbication = cityUbication;
     }
 
-    public String getContactUbication() {
+    public int getContactUbication() {
         return contactUbication;
     }
 
-    public void setContactUbication(String contactUbication) {
+    public void setContactUbication(int contactUbication) {
         this.contactUbication = contactUbication;
     }
 
