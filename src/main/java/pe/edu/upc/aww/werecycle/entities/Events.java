@@ -20,6 +20,8 @@ public class Events {
     @Column(name = "description",nullable = false,length = 200)
     private String description;
 
+    @Column(name="hora", nullable = false)
+    private  int hora;
     @Column(name = "numberParticipant", nullable = false)
     private int numberParticipant;
 
@@ -30,33 +32,17 @@ public class Events {
     /*@ManyToMany(mappedBy = "followedEvents")
     private Set<Useror> followers = new HashSet<>();*/
 
-    public Events(int idEvent, String title, LocalDate date, String description, int numberParticipant, Ubication idUbication) {
+    public Events() {
+    }
+
+    public Events(int idEvent, String title, LocalDate date, String description, int hora, int numberParticipant, Ubication idUbication) {
         this.idEvent = idEvent;
         this.title = title;
         this.date = date;
         this.description = description;
+        this.hora = hora;
         this.numberParticipant = numberParticipant;
         this.idUbication = idUbication;
-       // this.followers = followers;
-    }
-    /*public Set<Useror> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(Set<Useror> followers) {
-        this.followers = followers;
-    }*/
-
-    public Events() {
-    }
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public int getIdEvent() {
@@ -65,6 +51,14 @@ public class Events {
 
     public void setIdEvent(int idEvent) {
         this.idEvent = idEvent;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public LocalDate getDate() {
@@ -81,6 +75,14 @@ public class Events {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
     public int getNumberParticipant() {

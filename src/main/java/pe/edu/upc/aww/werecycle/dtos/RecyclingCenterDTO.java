@@ -10,8 +10,8 @@ public class RecyclingCenterDTO {
     private int idRecyclingCenter;
     private String nameRecyclingCenter;
     private String licenseRecyclingCenter;
-    private Time openinghourRecyclingCenter;
-    private Time closingtimeRecyclingCenter;
+    private int openinghourRecyclingCenter;
+    private int closingtimeRecyclingCenter;
     private Ubication idUbication;
 
     public int getIdRecyclingCenter() {
@@ -38,19 +38,19 @@ public class RecyclingCenterDTO {
         this.licenseRecyclingCenter = licenseRecyclingCenter;
     }
 
-    public Time getOpeninghourRecyclingCenter() {
+    public int getOpeninghourRecyclingCenter() {
         return openinghourRecyclingCenter;
     }
 
-    public void setOpeninghourRecyclingCenter(Time openinghourRecyclingCenter) {
+    public void setOpeninghourRecyclingCenter(int openinghourRecyclingCenter) {
         this.openinghourRecyclingCenter = openinghourRecyclingCenter;
     }
 
-    public Time getClosingtimeRecyclingCenter() {
+    public int getClosingtimeRecyclingCenter() {
         return closingtimeRecyclingCenter;
     }
 
-    public void setClosingtimeRecyclingCenter(Time closingtimeRecyclingCenter) {
+    public void setClosingtimeRecyclingCenter(int closingtimeRecyclingCenter) {
         this.closingtimeRecyclingCenter = closingtimeRecyclingCenter;
     }
 
