@@ -57,6 +57,9 @@ public class EventsServiceImplement implements IEventsService {
         return eR.findById(id).orElse(new Events());
     }
 
+    @Override
+    public Integer countEventLibre(){return eR.countEventLibre();}
+
     /*
     public void followEvent(int userId, int eventId) {
         Useror user = uR.findById(userId)

@@ -12,8 +12,6 @@ public class LikeDTO {
     private Publication idPublication;
 
 
-    private int countLikes;
-
 
     public int getIdLike() {
         return idLike;
@@ -31,11 +29,4 @@ public class LikeDTO {
         this.idPublication = idPublication;
     }
 
-    public int getCountLikes() {
-        return countLikes;
-    }
-
-    public void setCountLikes(int countLikes) {
-        this.countLikes = countLikes;
-    }
 }

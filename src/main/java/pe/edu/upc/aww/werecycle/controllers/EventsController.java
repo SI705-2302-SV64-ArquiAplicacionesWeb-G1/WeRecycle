@@ -86,4 +86,7 @@ public class EventsController {
         EventsDTO dto=m.map(eS.findById(id),EventsDTO.class);
         return dto;
     }
+
+    @GetMapping("/cantidad-de-evento-libre")
+    public Integer countEventLibre(){return eS.countEventLibre();}
 }

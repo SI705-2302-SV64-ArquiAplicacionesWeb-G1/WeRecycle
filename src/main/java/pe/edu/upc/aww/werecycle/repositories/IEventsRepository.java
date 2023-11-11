@@ -19,4 +19,7 @@ public interface IEventsRepository extends JpaRepository<Events,Integer>{
 
     @Query( value = "SELECT * FROM Events e WHERE e.number_participant <30", nativeQuery = true )
     List<Events> cuposLibres();
+
+    @Query (value= "SELECT COUNT (*) FROM Events e WHERE e.number_participant <30", nativeQuery = true)
+    Integer countEventLibre();
 }

@@ -27,4 +27,6 @@ public interface IEventsService {
 
     public Events findById(int id);
 
+    Integer countEventLibre();
+
 }

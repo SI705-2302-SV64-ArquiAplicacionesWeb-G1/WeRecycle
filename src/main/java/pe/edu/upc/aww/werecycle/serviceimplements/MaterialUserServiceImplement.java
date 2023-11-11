@@ -3,7 +3,6 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aww.werecycle.entities.MaterialUser;
-import pe.edu.upc.aww.werecycle.repositories.IUAssementRepository;
 import pe.edu.upc.aww.werecycle.repositories.IUMaterialUserRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUMaterialUser;
 
