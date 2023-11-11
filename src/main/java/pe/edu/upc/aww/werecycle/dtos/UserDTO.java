@@ -21,7 +21,6 @@ public class UserDTO {
 
     private Boolean enabled;
 
-    private Ubication ubicationUser;
 
     private int idEvent;
     public int getIdEvent() {
@@ -75,13 +74,6 @@ public class UserDTO {
         this.enabled = enabled;
     }
 
-    public Ubication getUbicationUser() {
-        return ubicationUser;
-    }
-
-    public void setUbicationUser(Ubication ubicationUser) {
-        this.ubicationUser = ubicationUser;
-    }
 
     public void setIdEvent(int idEvent)
     {

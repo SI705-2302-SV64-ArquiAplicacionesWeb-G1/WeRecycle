@@ -11,13 +11,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class EventsDTO {
+
+    private String title;
     private int idEvent;
     private LocalDate date;
     private String description;
 
     private int numberParticipant;
+
+    private  int hora;
+
+    public int getHora() {
+        return hora;
+    }
+
+    public void setHora(int hora) {
+        this.hora = hora;
+    }
+
     private Ubication idUbication;
-    private String title;
+
 
     public String getTitle() {
         return title;
@@ -67,7 +80,7 @@ public class EventsDTO {
         this.followers = followers;
     }*/
 
-   // private Set<Useror> followers = new HashSet<>();
+    // private Set<Useror> followers = new HashSet<>();
 
     public int getIdEvent() {
         return idEvent;

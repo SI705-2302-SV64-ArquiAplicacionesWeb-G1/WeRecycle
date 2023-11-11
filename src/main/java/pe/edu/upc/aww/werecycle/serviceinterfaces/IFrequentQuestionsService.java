@@ -1,7 +1,6 @@
 package pe.edu.upc.aww.werecycle.serviceinterfaces;
 
 import pe.edu.upc.aww.werecycle.entities.FrequentQuestions;
-import pe.edu.upc.aww.werecycle.entities.UserQuestions;
 
 import java.util.List;
 

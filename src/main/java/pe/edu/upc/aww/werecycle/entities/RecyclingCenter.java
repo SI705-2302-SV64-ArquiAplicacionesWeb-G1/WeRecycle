@@ -14,9 +14,9 @@ public class RecyclingCenter {
     @Column(name = "licenseRecyclingCenter", nullable = false, length = 25)
     private String licenseRecyclingCenter;
     @Column(name = "openinghourRecyclingCenter", nullable = false)
-    private Time openinghourRecyclingCenter;
+    private int openinghourRecyclingCenter;
     @Column(name = "closingtimeRecyclingCenter", nullable = false)
-    private Time closingtimeRecyclingCenter;
+    private int closingtimeRecyclingCenter;
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication idUbication;
@@ -24,7 +24,7 @@ public class RecyclingCenter {
     public RecyclingCenter() {
     }
 
-    public RecyclingCenter(int idRecyclingCenter, String nameRecyclingCenter, String licenseRecyclingCenter, Time openinghourRecyclingCenter, Time closingtimeRecyclingCenter, Ubication idUbication) {
+    public RecyclingCenter(int idRecyclingCenter, String nameRecyclingCenter, String licenseRecyclingCenter, int openinghourRecyclingCenter, int closingtimeRecyclingCenter, Ubication idUbication) {
         this.idRecyclingCenter = idRecyclingCenter;
         this.nameRecyclingCenter = nameRecyclingCenter;
         this.licenseRecyclingCenter = licenseRecyclingCenter;
@@ -57,19 +57,19 @@ public class RecyclingCenter {
         this.licenseRecyclingCenter = licenseRecyclingCenter;
     }
 
-    public Time getOpeninghourRecyclingCenter() {
+    public int getOpeninghourRecyclingCenter() {
         return openinghourRecyclingCenter;
     }
 
-    public void setOpeninghourRecyclingCenter(Time openinghourRecyclingCenter) {
+    public void setOpeninghourRecyclingCenter(int openinghourRecyclingCenter) {
         this.openinghourRecyclingCenter = openinghourRecyclingCenter;
     }
 
-    public Time getClosingtimeRecyclingCenter() {
+    public int getClosingtimeRecyclingCenter() {
         return closingtimeRecyclingCenter;
     }
 
-    public void setClosingtimeRecyclingCenter(Time closingtimeRecyclingCenter) {
+    public void setClosingtimeRecyclingCenter(int closingtimeRecyclingCenter) {
         this.closingtimeRecyclingCenter = closingtimeRecyclingCenter;
     }
 

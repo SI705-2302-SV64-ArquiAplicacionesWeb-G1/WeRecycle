@@ -23,10 +23,14 @@ public class Ubication {
     @Column(name = "descUbication", nullable = false, length = 50)
     private String descUbication;
 
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Useror usuario;
+
     public Ubication() {
     }
 
-    public Ubication(int idUbication, LocalDate ubicationDate, String addressUbication, String cityUbication, int contactUbication, String typeUbication, String descUbication) {
+    public Ubication(int idUbication, LocalDate ubicationDate, String addressUbication, String cityUbication, int contactUbication, String typeUbication, String descUbication, Useror usuario) {
         this.idUbication = idUbication;
         this.ubicationDate = ubicationDate;
         this.addressUbication = addressUbication;
@@ -34,6 +38,7 @@ public class Ubication {
         this.contactUbication = contactUbication;
         this.typeUbication = typeUbication;
         this.descUbication = descUbication;
+        this.usuario = usuario;
     }
 
     public int getIdUbication() {
@@ -90,5 +95,13 @@ public class Ubication {
 
     public void setDescUbication(String descUbication) {
         this.descUbication = descUbication;
+    }
+
+    public Useror getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Useror usuario) {
+        this.usuario = usuario;
     }
 }

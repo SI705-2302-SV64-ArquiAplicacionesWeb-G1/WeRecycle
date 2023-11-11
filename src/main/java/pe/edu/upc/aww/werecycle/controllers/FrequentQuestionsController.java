@@ -7,11 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.FrequentQuestionsDTO;
 import pe.edu.upc.aww.werecycle.dtos.MaterialUserDTO;
 import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
-import pe.edu.upc.aww.werecycle.dtos.UserQuestionsDTO;
 import pe.edu.upc.aww.werecycle.entities.FrequentQuestions;
 import pe.edu.upc.aww.werecycle.entities.MaterialUser;
 import pe.edu.upc.aww.werecycle.entities.Publication;
-import pe.edu.upc.aww.werecycle.entities.UserQuestions;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IFrequentQuestionsService;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUMaterialUser;
 

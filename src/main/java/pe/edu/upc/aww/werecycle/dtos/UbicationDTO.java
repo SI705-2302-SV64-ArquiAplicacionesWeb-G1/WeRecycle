@@ -1,5 +1,7 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
+import pe.edu.upc.aww.werecycle.entities.Useror;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +23,16 @@ public class UbicationDTO {
     private String typeUbication;
 
     private String descUbication;
+
+    private Useror idUsuario;
+
+    public Useror getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Useror idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public int getIdUbication() {
         return idUbication;

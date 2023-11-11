@@ -26,22 +26,17 @@ public class Useror  {
     @JsonIgnore
     @JoinColumn(name="idUser")
     private List<Roles> roles;
-    @OneToOne
-    @JoinColumn(name = "idUbication")
-    private Ubication ubicationUser;
 
     public Useror() {
     }
 
-    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, Boolean enabled, List<Roles> roles, Ubication ubicationUser) {
+    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, Boolean enabled, List<Roles> roles) {
         this.idUser = idUser;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userAge = userAge;
-        this.enabled = enabled;
         this.roles = roles;
-        this.ubicationUser = ubicationUser;
     }
 
     public int getIdUser() {
@@ -100,11 +95,4 @@ public class Useror  {
         this.roles = roles;
     }
 
-    public Ubication getUbicationUser() {
-        return ubicationUser;
-    }
-
-    public void setUbicationUser(Ubication ubicationUser) {
-        this.ubicationUser = ubicationUser;
-    }
 }
