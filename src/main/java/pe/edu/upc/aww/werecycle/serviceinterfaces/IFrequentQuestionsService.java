@@ -10,4 +10,8 @@ public interface IFrequentQuestionsService {
     public List<FrequentQuestions> list();
 
     public void delete(int idFrequenQuestions);
+
+    List<FrequentQuestions> findBycategory(String category);
+
+
 }
