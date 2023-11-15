@@ -2,6 +2,7 @@ package pe.edu.upc.aww.werecycle.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.FrequentQuestionsDTO;
@@ -17,12 +18,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/frequentquestioncontroller")
+    @RequestMapping("/frequentquestioncontroller")
 public class FrequentQuestionsController {
     @Autowired
     private IFrequentQuestionsService fqS;
 
     @PostMapping
+
     public void registrar(@RequestBody FrequentQuestionsDTO dto) {
         ModelMapper m = new ModelMapper();
         FrequentQuestions fu = m.map(dto, FrequentQuestions.class);
@@ -30,6 +32,7 @@ public class FrequentQuestionsController {
     }
 
     @GetMapping
+
     public List<FrequentQuestionsDTO> listar() {
         return fqS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

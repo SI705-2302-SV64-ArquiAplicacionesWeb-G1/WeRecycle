@@ -1,20 +1,22 @@
 package pe.edu.upc.aww.werecycle.entities;
-import pe.edu.upc.aww.werecycle.entities.Recurso;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "TypeRecurso")
 public class TypeRecurso {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTypeRecurso;
-    @Column(name = "TypeRecursotype")
+    @Column(name = "typeRecursotype")
     private String typeRecursotype;
-    @OneToOne
-    @JoinColumn(name = "id_Recurso")
-    private Recurso id_Recurso;
 
     public TypeRecurso() {
+    }
+
+    public TypeRecurso(int idTypeRecurso, String typeRecursotype) {
+        this.idTypeRecurso = idTypeRecurso;
+        this.typeRecursotype = typeRecursotype;
     }
 
     public int getIdTypeRecurso() {
@@ -31,13 +33,5 @@ public class TypeRecurso {
 
     public void setTypeRecursotype(String typeRecursotype) {
         this.typeRecursotype = typeRecursotype;
-    }
-
-    public Recurso getId_Recurso() {
-        return id_Recurso;
-    }
-
-    public void setId_Recurso(Recurso id_Recurso) {
-        this.id_Recurso = id_Recurso;
     }
 }
