@@ -36,6 +36,13 @@ public class PublicationController {
             return m.map(x, PublicationDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/{id}")
+    public PublicationDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        PublicationDTO dto=m.map(pU.listarId(id),PublicationDTO.class);
+        return dto;
+    }
     @DeleteMapping("/{idPublication}")
     public void eliminar(@PathVariable("idPublication")Integer idPublication){
         pU.delete(idPublication);
