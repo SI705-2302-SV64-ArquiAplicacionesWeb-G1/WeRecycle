@@ -42,6 +42,7 @@ public class WebSecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -70,4 +71,5 @@ public class WebSecurityConfig {
 
         return httpSecurity.build();
     }
+    
 }
