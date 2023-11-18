@@ -60,6 +60,11 @@ public class EventsServiceImplement implements IEventsService {
     @Override
     public Integer countEventLibre(){return eR.countEventLibre();}
 
+    @Override
+    public List<String[]> numberofeventsperlocation() {
+        return eR.numberofeventsperlocation();
+    }
+
     /*
     public void followEvent(int userId, int eventId) {
         Useror user = uR.findById(userId)
