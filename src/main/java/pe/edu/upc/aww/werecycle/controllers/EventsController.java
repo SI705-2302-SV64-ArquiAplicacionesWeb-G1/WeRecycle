@@ -105,4 +105,15 @@ public class EventsController {
         }
         return mpListaDTO;
     }
+
+    @GetMapping("/mis-eventos/{id}")
+    public List<EventsDTO> eventosDeUsuario(@PathVariable("id")Integer id){
+        return eS.eventosDeUsuario(id).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, EventsDTO.class);
+        }).collect(Collectors.toList());
+
+
+
+    }
 }

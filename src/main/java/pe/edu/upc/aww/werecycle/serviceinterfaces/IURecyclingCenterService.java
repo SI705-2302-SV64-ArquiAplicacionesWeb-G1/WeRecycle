@@ -12,4 +12,10 @@ public interface IURecyclingCenterService {
     List<RecyclingCenter>findRecyclingCenterByNameRecyclingCenter(String NameRecyclingCenter);
     List<RecyclingCenter>findRecyclingCenterByOpeninghourRecyclingCenter(Time openinghourRecyclingCenter);
     List<RecyclingCenter>findRecyclingCenterByClosingtimeRecyclingCenter(Time closingtimeRecyclingCenter);
+
+    public RecyclingCenter findById(int id);
+
+    List<RecyclingCenter>centroDeUsuario(int id);
+
+    public int cantidadCentro();
 }

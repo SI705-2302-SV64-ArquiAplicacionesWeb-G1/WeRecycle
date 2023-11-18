@@ -11,7 +11,7 @@ public class RecyclingCenter {
     private int idRecyclingCenter;
     @Column(name = "nameRecyclingCenter", nullable = false, length = 20)
     private String nameRecyclingCenter;
-    @Column(name = "licenseRecyclingCenter", nullable = false, length = 25)
+    @Column(name = "licenseRecyclingCenter", nullable = false, length = 200)
     private String licenseRecyclingCenter;
     @Column(name = "openinghourRecyclingCenter", nullable = false)
     private int openinghourRecyclingCenter;
