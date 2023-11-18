@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.RolesDTO;
+import pe.edu.upc.aww.werecycle.dtos.UsuarioRolDTO;
 import pe.edu.upc.aww.werecycle.entities.Roles;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ITypeUserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +39,19 @@ public class TypeUserController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         tS.delete(id);
+    }
+
+    @GetMapping("/usuario-cantidad")
+    public List<UsuarioRolDTO> cantidadUsuarioRol() {
+        List<String[]> lista = tS.cantidadUsuarioRol();
+        List<UsuarioRolDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            UsuarioRolDTO dto = new UsuarioRolDTO();
+            dto.setTypeAccount(data[0]);
+            dto.setQuantityAccount(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }

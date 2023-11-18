@@ -29,4 +29,8 @@ public interface IEventsService {
 
     Integer countEventLibre();
 
+    List<String[]> numberofeventsperlocation();
+
+    List<Events>eventosDeUsuario(int id);
+
 }

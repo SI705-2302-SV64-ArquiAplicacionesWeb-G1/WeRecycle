@@ -9,4 +9,6 @@ public interface ITypeUserService {
 
     public List<Roles>list();
     public void delete(int idTypeUser);
+
+    public List<String[]> cantidadUsuarioRol();
 }

@@ -76,4 +76,25 @@ public class RecyclingCenterController {
             return dto;
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/mi-centro/{id}")
+    public List<RecyclingCenterDTO> centroDeUsuario(@PathVariable("id")Integer id){
+        return rC.centroDeUsuario(id).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, RecyclingCenterDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+
+    @GetMapping("/centro-por-id/{id}")
+    public RecyclingCenterDTO findById(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        RecyclingCenterDTO dto=m.map(rC.findById(id),RecyclingCenterDTO.class);
+        return dto;
+    }
+
+    @GetMapping("/cantidad-centro")
+    public int cantidadCentro(){
+        return rC.cantidadCentro();
+    }
 }
