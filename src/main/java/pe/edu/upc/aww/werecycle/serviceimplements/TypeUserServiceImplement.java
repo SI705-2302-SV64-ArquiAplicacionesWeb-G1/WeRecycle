@@ -30,4 +30,9 @@ public class TypeUserServiceImplement implements ITypeUserService{
         tR.deleteById(idTypeUser);
     }
 
+    @Override
+    public List<String[]> cantidadUsuarioRol() {
+        return tR.cantidadUsuarioRol();
+    }
+
 }

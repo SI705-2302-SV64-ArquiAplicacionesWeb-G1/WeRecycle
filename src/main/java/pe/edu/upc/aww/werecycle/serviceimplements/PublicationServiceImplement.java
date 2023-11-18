@@ -60,5 +60,9 @@ public class PublicationServiceImplement implements IUPublicationService {
         return pU.findPublicationLikesDTOWithMostLikes();
     }
 
+    @Override
+    public Publication listarId(int idPublication) {
+        return pU.findById(idPublication).orElse(new Publication());
+    }
 
 }

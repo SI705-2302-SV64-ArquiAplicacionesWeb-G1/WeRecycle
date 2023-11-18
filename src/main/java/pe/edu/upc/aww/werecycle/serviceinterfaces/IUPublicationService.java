@@ -18,4 +18,6 @@ public interface IUPublicationService {
     public List<Publication> findByPublicationByType(@Param("type") String typeRecursotype);
     Integer CountPublicationByType();
     public List<PublicationLikesDTO>findPublicationsWithMostLikes();
+
+    public Publication listarId(int idPublication);
 }

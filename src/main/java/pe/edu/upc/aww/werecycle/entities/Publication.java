@@ -14,7 +14,7 @@ public class Publication {
     @Column(name = "title",length = 100,nullable = false)
     private String title;
 
-    @Column(name = "description",nullable = false)
+    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "archivo")
