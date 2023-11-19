@@ -28,7 +28,6 @@ public class LikeController {
         lS.insert(u);
     }
     @GetMapping
-
     public List<LikeDTO> listar() {
         return lS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -48,7 +47,7 @@ public class LikeController {
     }
 
     @GetMapping("/cantidaDeLikesPorPublicacion")
-    List<QuantityOfLikeForPublicationDTO>cantidaDeLikesPorPublicacion(){
+        List<QuantityOfLikeForPublicationDTO>cantidaDeLikesPorPublicacion(){
         List<String[]>mpLista = lS.QuantityOfLikeForPublication();
         List<QuantityOfLikeForPublicationDTO> mpListaDTO =new ArrayList<>();
         for (String[]data: mpLista){

@@ -10,7 +10,7 @@ import pe.edu.upc.aww.werecycle.serviceinterfaces.ILikeService;
 import java.util.List;
 
 @Service
-public class LikeServiceImplement implements ILikeService {
+public class    LikeServiceImplement implements ILikeService {
 
     @Autowired
     private IlikeRepository lR;

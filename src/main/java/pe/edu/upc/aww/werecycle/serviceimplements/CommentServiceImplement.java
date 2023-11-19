@@ -3,6 +3,7 @@ package pe.edu.upc.aww.werecycle.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aww.werecycle.entities.Comment;
+import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.repositories.ICommentRepository;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ICommentService;
 
@@ -31,4 +32,11 @@ public class CommentServiceImplement implements ICommentService {
     public List<String[]> QuantityOfCommentsForPublication() {
         return cR.QuantityOfCommentsForPublication();
     }
+
+    @Override
+    public List<Comment> findbyidPublication(int idPublication) {
+        return cR.findbyidPublication(idPublication);
+    }
+
+
 }

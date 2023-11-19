@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.CommentDTO;
 
+import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
 import pe.edu.upc.aww.werecycle.dtos.QuantityOfCommentsForPublicationDTO;
 import pe.edu.upc.aww.werecycle.entities.Comment;
 
+import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ICommentService;
 
 import java.util.ArrayList;
@@ -56,4 +58,12 @@ public class CommentController {
         }
         return mpListaDTO;
     }
+        @GetMapping("/buscarporidPublication/{idPublication}")
+        public List<CommentDTO> publicacionPoridPublication(@PathVariable int idPublication) {
+            List<Comment> publications = cS.findbyidPublication(idPublication);
+            return publications.stream().map(publication -> {
+                ModelMapper modelMapper = new ModelMapper();
+                return modelMapper.map(publication, CommentDTO.class);
+            }).collect(Collectors.toList());
+        }
 }

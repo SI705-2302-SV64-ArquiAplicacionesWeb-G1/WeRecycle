@@ -66,17 +66,16 @@ public class EventsController {
     }
 
     @GetMapping("/evento-por-titulo/{titulo}")
-    public List<EventsDTO> findByName(@PathVariable("titulo") String titulo){
+    public List<EventsDTO> findByName(@PathVariable("titulo") String titulo) {
         return eS.findByTitle(titulo).stream().map(x ->
         {
-            ModelMapper m= new ModelMapper();
+            ModelMapper m = new ModelMapper();
             return m.map(x, EventsDTO.class);
         }).collect(Collectors.toList());
     }
 
     @GetMapping("/evento-cupos-libre")
-    public List<EventsDTO> cuposLibres()
-    {
+    public List<EventsDTO> cuposLibres() {
         return eS.cuposLibres().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, EventsDTO.class);
@@ -85,19 +84,21 @@ public class EventsController {
 
     @GetMapping("/evento-por-id/{id}")
     public EventsDTO findById(@PathVariable("id") Integer id) {
-        ModelMapper m=new ModelMapper();
-        EventsDTO dto=m.map(eS.findById(id),EventsDTO.class);
+        ModelMapper m = new ModelMapper();
+        EventsDTO dto = m.map(eS.findById(id), EventsDTO.class);
         return dto;
     }
 
     @GetMapping("/cantidad-de-evento-libre")
-    public Integer countEventLibre(){return eS.countEventLibre();}
+    public Integer countEventLibre() {
+        return eS.countEventLibre();
+    }
 
     @GetMapping("/cantidaDeEventosPorUbicacion")
-    List<NumberOfEventsPerLocationDTO>cantidaDeEventosPorUbicacion(){
-        List<String[]>mpLista = eS.numberofeventsperlocation();
-        List<NumberOfEventsPerLocationDTO> mpListaDTO =new ArrayList<>();
-        for (String[]data: mpLista){
+    List<NumberOfEventsPerLocationDTO> cantidaDeEventosPorUbicacion() {
+        List<String[]> mpLista = eS.numberofeventsperlocation();
+        List<NumberOfEventsPerLocationDTO> mpListaDTO = new ArrayList<>();
+        for (String[] data : mpLista) {
             NumberOfEventsPerLocationDTO mpDTO = new NumberOfEventsPerLocationDTO();
             mpDTO.setQuantityOfEvents(Integer.parseInt(data[0]));
             mpDTO.setIdUbication(Integer.parseInt(data[0]));
@@ -105,7 +106,7 @@ public class EventsController {
         }
         return mpListaDTO;
     }
-
+    
     @GetMapping("/mis-eventos/{id}")
     public List<EventsDTO> eventosDeUsuario(@PathVariable("id")Integer id){
         return eS.eventosDeUsuario(id).stream().map(x -> {
