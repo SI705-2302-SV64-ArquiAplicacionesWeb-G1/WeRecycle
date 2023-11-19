@@ -24,7 +24,7 @@ public class Useror  {
     private Boolean enabled;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
-    @JoinColumn(name="useror")
+    @JoinColumn(name="idUser")
     private List<Roles> roles;
 
     public Useror() {

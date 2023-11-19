@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "useror", "typeAccount" }) })
+@Table(name = "Roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "idUser", "typeAccount" }) })
 public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Roles {
 
     @ManyToOne()
     @JsonIgnore
-    @JoinColumn(name = "useror")
+    @JoinColumn(name = "idUser")
     private Useror useror;
 
     public Roles() {
