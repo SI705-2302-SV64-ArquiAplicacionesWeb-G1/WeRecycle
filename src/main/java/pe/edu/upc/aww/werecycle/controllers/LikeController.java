@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.LikeDTO;
 
 import pe.edu.upc.aww.werecycle.dtos.QuantityOfLikeForPublicationDTO;
+import pe.edu.upc.aww.werecycle.dtos.QuantityOfLikeForPublicationReporteDTO;
 import pe.edu.upc.aww.werecycle.entities.Likes;
 
 import pe.edu.upc.aww.werecycle.serviceinterfaces.ILikeService;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/likes")
+    @RequestMapping("/likes")
 public class LikeController {
 
     @Autowired
@@ -46,12 +47,25 @@ public class LikeController {
         lS.insert(u);
     }
 
-    @GetMapping("/cantidaDeLikesPorPublicacion")
-        List<QuantityOfLikeForPublicationDTO>cantidaDeLikesPorPublicacion(){
-        List<String[]>mpLista = lS.QuantityOfLikeForPublication();
-        List<QuantityOfLikeForPublicationDTO> mpListaDTO =new ArrayList<>();
+    @GetMapping("/cantidaDeLikesPorPublicacion/{idPublication}")
+    List<QuantityOfLikeForPublicationDTO> cantidaDeLikesPorPublicacion(@PathVariable int idPublication) {
+        int quantityOfLikes = lS.quantityOfLikeForPublication(idPublication);
+        // Crear un DTO con la cantidad de likes
+        QuantityOfLikeForPublicationDTO mpDTO = new QuantityOfLikeForPublicationDTO();
+        mpDTO.setQuantityOfLikes(quantityOfLikes);
+        // Agregar el DTO a la lista y devolverla
+        List<QuantityOfLikeForPublicationDTO> mpListaDTO = new ArrayList<>();
+        mpListaDTO.add(mpDTO);
+
+        return mpListaDTO;
+    }
+
+    @GetMapping("/cantidaDeLikesPorPublicacionREPORTE")
+    List<QuantityOfLikeForPublicationReporteDTO>cantidaDeLikesPorPublicacionReporte(){
+        List<String[]>mpLista = lS.QuantityOfLikeForPublicationreporte();
+        List<QuantityOfLikeForPublicationReporteDTO> mpListaDTO =new ArrayList<>();
         for (String[]data: mpLista){
-            QuantityOfLikeForPublicationDTO mpDTO = new QuantityOfLikeForPublicationDTO();
+            QuantityOfLikeForPublicationReporteDTO mpDTO = new QuantityOfLikeForPublicationReporteDTO();
             mpDTO.setQuantityOfLikes(Integer.parseInt(data[0]));
             mpDTO.setNamePublication(data[1]);
             mpListaDTO.add(mpDTO);
