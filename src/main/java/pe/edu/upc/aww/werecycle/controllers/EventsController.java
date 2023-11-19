@@ -99,8 +99,8 @@ public class EventsController {
         List<NumberOfEventsPerLocationDTO> mpListaDTO =new ArrayList<>();
         for (String[]data: mpLista){
             NumberOfEventsPerLocationDTO mpDTO = new NumberOfEventsPerLocationDTO();
-            mpDTO.setQuantityOfEvents(Integer.parseInt(data[0]));
-            mpDTO.setIdUbication(Integer.parseInt(data[0]));
+            mpDTO.setCity(data[0]);
+            mpDTO.setQuantityOfEvents(Integer.parseInt(data[1]));
             mpListaDTO.add(mpDTO);
         }
         return mpListaDTO;
