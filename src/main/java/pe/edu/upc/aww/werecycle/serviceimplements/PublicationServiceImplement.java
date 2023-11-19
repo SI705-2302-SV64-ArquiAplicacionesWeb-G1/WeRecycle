@@ -48,12 +48,6 @@ public class PublicationServiceImplement implements IUPublicationService {
         return pU.findByPublicationByType(typeRecursotype);
     }
 
-    @Override
-    public Integer CountPublicationByType() {
-        return pU.CountPublicationByType();
-    }
-
-
 
     @Override
     public List<PublicationLikesDTO> findPublicationsWithMostLikes() {
@@ -63,6 +57,11 @@ public class PublicationServiceImplement implements IUPublicationService {
     @Override
     public Publication listarId(int idPublication) {
         return pU.findById(idPublication).orElse(new Publication());
+    }
+
+    @Override
+    public List<String[]> quantityPublicationByType() {
+        return pU.quantityPublicationByType();
     }
 
 }

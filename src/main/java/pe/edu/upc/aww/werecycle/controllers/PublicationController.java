@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.EventsDTO;
 import pe.edu.upc.aww.werecycle.dtos.PublicationDTO;
 import pe.edu.upc.aww.werecycle.dtos.PublicationLikesDTO;
+import pe.edu.upc.aww.werecycle.dtos.quantityPublicacionByTypeDTO;
 import pe.edu.upc.aww.werecycle.entities.Publication;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IUPublicationService;
 
@@ -79,10 +80,19 @@ public class PublicationController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/cantidaTypeVideo")
-    public Integer cantidadPublicacionVideo(){
-        return pU.CountPublicationByType();
+    @GetMapping("/cantidadPorTipo")
+    public List<quantityPublicacionByTypeDTO> cantidadPublicacionPorTypo () {
+        List<String[]> lista = pU.quantityPublicationByType();
+        List<quantityPublicacionByTypeDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            quantityPublicacionByTypeDTO dto = new quantityPublicacionByTypeDTO();
+            dto.setTypeRecursotype(data[0]);
+            dto.setQuantityPublication(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
+
 
 
     @GetMapping("/Publicacion-con-mas-like")

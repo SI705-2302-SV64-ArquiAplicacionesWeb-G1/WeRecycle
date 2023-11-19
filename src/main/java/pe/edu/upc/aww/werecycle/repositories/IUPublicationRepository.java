@@ -53,11 +53,11 @@ public interface IUPublicationRepository extends JpaRepository<Publication, Inte
             "WHERE tr.type_recursotype = :type", nativeQuery = true)
     public List<Publication> findByPublicationByType(@Param("type") String typeRecursotype);
 
-    @Query(value = "SELECT COUNT(*) \n" +
-            "FROM publication p\n" +
-            "JOIN type_recurso tr ON p.id_type_recurso = tr.id_type_recurso\n" +
-            "WHERE tr.type_recursotype = 'video';", nativeQuery = true)
-    Integer CountPublicationByType();
+    @Query(value = "SELECT tr.type_recursotype AS tipo_recurso, COUNT(p.id_publication) AS total_publicaciones\n" +
+            "FROM public.type_recurso tr\n" +
+            "JOIN public.publication p ON tr.id_type_recurso = p.id_type_recurso\n" +
+            "GROUP BY tr.type_recursotype;", nativeQuery = true)
+    public List<String[]> quantityPublicationByType();
 
 }
 
