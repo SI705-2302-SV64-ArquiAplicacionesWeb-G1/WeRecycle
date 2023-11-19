@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class CommentController {
 
     @Autowired
-    private ICommentService cS;
+    private ICommentService cS; 
     @PostMapping
     public void registrar(@RequestBody CommentDTO dto){
         ModelMapper m = new ModelMapper();
