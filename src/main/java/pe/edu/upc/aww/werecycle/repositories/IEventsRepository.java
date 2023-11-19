@@ -23,8 +23,10 @@ public interface IEventsRepository extends JpaRepository<Events,Integer>{
     @Query (value= "SELECT COUNT (*) FROM Events e WHERE e.number_participant <30", nativeQuery = true)
     Integer countEventLibre();
 
-    @Query (value = "SELECT id_Ubication, COUNT(*) as cantidad_eventos\n" +
-            "FROM events\n" +
-            "GROUP BY id_Ubication;", nativeQuery = true)
-    List<String[]> numberofeventsperlocation();
+    @Query (value = "SELECT u.city_ubication, COUNT(*) as cantidad_eventos\n" +
+            "FROM events as e\n" +
+            "INNER JOIN ubication as u\n" +
+            "ON e.id_ubication = u.id_ubication\n" +
+            "GROUP BY u.city_ubication;", nativeQuery = true)
+    public List<String[]> numberofeventsperlocation();
 }

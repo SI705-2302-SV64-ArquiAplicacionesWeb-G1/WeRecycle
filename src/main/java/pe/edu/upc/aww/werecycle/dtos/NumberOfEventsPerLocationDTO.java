@@ -3,7 +3,7 @@ package pe.edu.upc.aww.werecycle.dtos;
 public class NumberOfEventsPerLocationDTO {
     public int QuantityOfEvents;
 
-    public int IdUbication;
+    public String City;
 
     public int getQuantityOfEvents() {
         return QuantityOfEvents;
@@ -13,11 +13,11 @@ public class NumberOfEventsPerLocationDTO {
         QuantityOfEvents = quantityOfEvents;
     }
 
-    public int getIdUbication() {
-        return IdUbication;
+    public String getCity() {
+        return City;
     }
 
-    public void setIdUbication(int idUbication) {
-        IdUbication = idUbication;
+    public void setCity(String city) {
+        City = city;
     }
 }
