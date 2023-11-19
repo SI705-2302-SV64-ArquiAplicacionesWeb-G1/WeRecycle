@@ -31,4 +31,6 @@ public interface IEventsService {
 
     List<String[]> numberofeventsperlocation();
 
+    List<Events>eventosDeUsuario(int id);
+
 }

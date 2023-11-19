@@ -65,6 +65,11 @@ public class EventsServiceImplement implements IEventsService {
         return eR.numberofeventsperlocation();
     }
 
+    @Override
+    public List<Events> eventosDeUsuario(int id) {
+        return eR.eventosDeUsuario(id);
+    }
+
     /*
     public void followEvent(int userId, int eventId) {
         Useror user = uR.findById(userId)

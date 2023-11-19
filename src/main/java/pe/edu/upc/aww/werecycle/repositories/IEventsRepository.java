@@ -29,4 +29,11 @@ public interface IEventsRepository extends JpaRepository<Events,Integer>{
             "ON e.id_ubication = u.id_ubication\n" +
             "GROUP BY u.city_ubication;", nativeQuery = true)
     public List<String[]> numberofeventsperlocation();
+
+    @Query(value = "SELECT e.* FROM Events e " +
+            "JOIN Ubication u ON e.id_ubication = u.id_ubication " +
+            "JOIN Useror uo ON uo.id_user = u.id_usuario " +
+            "WHERE uo.id_user = :idUser", nativeQuery = true)
+    List<Events> eventosDeUsuario(@Param("idUser") int idUser);
+
 }
