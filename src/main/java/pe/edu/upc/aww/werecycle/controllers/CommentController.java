@@ -56,4 +56,12 @@ public class CommentController {
         }
         return mpListaDTO;
     }
+    @GetMapping("/buscarporidPublication/{idPublication}")
+    public List<CommentDTO> publicacionPoridPublication(@PathVariable int idPublication) {
+        List<Comment> publications = cS.findbyidPublication(idPublication);
+        return publications.stream().map(publication -> {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(publication, CommentDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
