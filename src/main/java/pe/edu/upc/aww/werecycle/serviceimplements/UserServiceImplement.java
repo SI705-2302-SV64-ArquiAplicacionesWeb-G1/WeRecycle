@@ -41,7 +41,7 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
-    public List<Useror> findByUserName(String userName)
+    public Useror findByUserName(String userName)
     {
         return uR.findByUserName(userName);
     }
