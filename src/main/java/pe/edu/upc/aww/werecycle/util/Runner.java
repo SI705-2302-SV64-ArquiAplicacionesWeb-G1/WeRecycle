@@ -60,7 +60,7 @@ public class Runner implements CommandLineRunner {
         Roles roles3 = new Roles();
         roles3.setStateType(true);
         roles3.setTypeAccount("centro");
-        roles3.setUseror(useror3    );
+        roles3.setUseror(useror3);
         typeUserRepository.save(roles3);
     }
 }
