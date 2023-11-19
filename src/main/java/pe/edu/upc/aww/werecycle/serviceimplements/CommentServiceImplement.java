@@ -31,4 +31,9 @@ public class CommentServiceImplement implements ICommentService {
     public List<String[]> QuantityOfCommentsForPublication() {
         return cR.QuantityOfCommentsForPublication();
     }
+
+    @Override
+    public List<Comment> findbyidPublication(int idPublication) {
+        return cR.findbyidPublication(idPublication);
+    }
 }
