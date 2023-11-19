@@ -4,10 +4,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aww.werecycle.dtos.EventsDTO;
+import pe.edu.upc.aww.werecycle.dtos.NumberOfEventsPerLocationDTO;
+import pe.edu.upc.aww.werecycle.dtos.QuantityOfCommentsForPublicationDTO;
 import pe.edu.upc.aww.werecycle.entities.Events;
 import pe.edu.upc.aww.werecycle.serviceinterfaces.IEventsService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,4 +92,28 @@ public class EventsController {
 
     @GetMapping("/cantidad-de-evento-libre")
     public Integer countEventLibre(){return eS.countEventLibre();}
+
+    @GetMapping("/cantidaDeEventosPorUbicacion")
+    List<NumberOfEventsPerLocationDTO>cantidaDeEventosPorUbicacion(){
+        List<String[]>mpLista = eS.numberofeventsperlocation();
+        List<NumberOfEventsPerLocationDTO> mpListaDTO =new ArrayList<>();
+        for (String[]data: mpLista){
+            NumberOfEventsPerLocationDTO mpDTO = new NumberOfEventsPerLocationDTO();
+            mpDTO.setCity(data[0]);
+            mpDTO.setQuantityOfEvents(Integer.parseInt(data[1]));
+            mpListaDTO.add(mpDTO);
+        }
+        return mpListaDTO;
+    }
+
+    @GetMapping("/mis-eventos/{id}")
+    public List<EventsDTO> eventosDeUsuario(@PathVariable("id")Integer id){
+        return eS.eventosDeUsuario(id).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, EventsDTO.class);
+        }).collect(Collectors.toList());
+
+
+
+    }
 }

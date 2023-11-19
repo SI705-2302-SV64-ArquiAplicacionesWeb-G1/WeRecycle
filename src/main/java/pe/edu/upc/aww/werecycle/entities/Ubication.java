@@ -14,13 +14,13 @@ public class Ubication {
     private LocalDate ubicationDate;
     @Column(name = "addressUbication", nullable = false, length = 50)
     private String addressUbication;
-    @Column(name = "cityUbication", nullable = false, length = 50)
+    @Column(name = "cityUbication", nullable = false)
     private String cityUbication;
     @Column(name = "contactUbication", nullable = false, length = 9)
     private int contactUbication;
-    @Column(name = "typeUbication", nullable = false, length = 15)
+    @Column(name = "typeUbication", nullable = false)
     private String typeUbication;
-    @Column(name = "descUbication", nullable = false, length = 50)
+    @Column(name = "descUbication")
     private String descUbication;
 
     @ManyToOne

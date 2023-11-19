@@ -17,7 +17,7 @@ public class Events {
     private String title;
     @Column(name = "date",nullable = false)
     private LocalDate date;
-    @Column(name = "description",nullable = false,length = 200)
+    @Column(name = "description",nullable = false,length = 500)
     private String description;
 
     @Column(name="hora", nullable = false)

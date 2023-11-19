@@ -45,4 +45,18 @@ public class RecyclingCenterServiceImplement implements IURecyclingCenterService
     public List<RecyclingCenter> findRecyclingCenterByClosingtimeRecyclingCenter(Time closingtimeRecyclingCenter) {
         return null;
     }
+
+    @Override
+    public RecyclingCenter findById(int id) {
+        return rC.findById(id).orElse(new RecyclingCenter());
+    }
+
+    @Override
+    public List<RecyclingCenter> centroDeUsuario(int id) {
+        return rC.centroDeUsuario(id);
+    }
+
+    @Override
+    public int cantidadCentro() {
+        return rC.cantidadCentro();}
 }

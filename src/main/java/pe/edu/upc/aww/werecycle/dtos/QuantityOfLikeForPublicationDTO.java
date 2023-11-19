@@ -3,7 +3,12 @@ package pe.edu.upc.aww.werecycle.dtos;
 public class QuantityOfLikeForPublicationDTO {
     public int QuantityOfLikes;
 
-    public String namePublication;
+    public QuantityOfLikeForPublicationDTO() {
+    }
+
+    public QuantityOfLikeForPublicationDTO(int quantityOfLikes) {
+        QuantityOfLikes = quantityOfLikes;
+    }
 
     public int getQuantityOfLikes() {
         return QuantityOfLikes;
@@ -13,11 +18,4 @@ public class QuantityOfLikeForPublicationDTO {
         QuantityOfLikes = quantityOfLikes;
     }
 
-    public String getNamePublication() {
-        return namePublication;
-    }
-
-    public void setNamePublication(String namePublication) {
-        this.namePublication = namePublication;
-    }
 }

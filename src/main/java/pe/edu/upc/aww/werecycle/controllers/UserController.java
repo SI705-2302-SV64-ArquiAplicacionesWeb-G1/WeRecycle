@@ -47,12 +47,11 @@ public class UserController {
         uS.insert(u);
     }
 
-    @GetMapping("/user/{userName}")
-    public List<UserDTO> findByUserName (@PathVariable("userName") String userName){
-        return uS.findByUserName(userName).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, UserDTO.class);
-        }).collect(Collectors.toList());
+    @GetMapping("/{userName}")
+    public UserDTO findByUserName (@PathVariable("userName") String userName){
+        ModelMapper m=new ModelMapper();
+        UserDTO dto=m.map(uS.findByUserName(userName),UserDTO.class);
+        return dto;
     }
 
   /* @PostMapping("/{userId}/follow-event/{eventId}")
