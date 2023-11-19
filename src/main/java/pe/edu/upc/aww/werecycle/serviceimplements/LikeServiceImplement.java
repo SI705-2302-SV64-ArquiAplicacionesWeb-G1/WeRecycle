@@ -32,10 +32,15 @@ public class LikeServiceImplement implements ILikeService {
     }
 
     @Override
-    public List<String[]> QuantityOfLikeForPublication() {
-        return lR.QuantityOfLikeForPublication();
+    public int quantityOfLikeForPublication(int idPublication) {
+        return lR.quantityOfLikeForPublication(idPublication);
+
     }
 
+    @Override
+    public List<String[]> QuantityOfLikeForPublicationreporte() {
+        return lR.QuantityOfLikeForPublicationreporte();
+    }
 
 
 }

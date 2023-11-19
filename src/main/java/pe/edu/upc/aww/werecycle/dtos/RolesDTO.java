@@ -39,5 +39,11 @@ public class RolesDTO {
         this.stateType = stateType;
     }
 
+    public Useror getUseror() {
+        return useror;
+    }
 
+    public void setUseror(Useror useror) {
+        this.useror = useror;
+    }
 }
