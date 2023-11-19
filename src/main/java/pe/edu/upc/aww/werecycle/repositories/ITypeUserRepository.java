@@ -15,7 +15,7 @@ public interface ITypeUserRepository extends JpaRepository<Roles,Integer> {
             "\n" +
             "from Useror u inner join Roles r \n" +
             "\n" +
-            "on u.id_user=r.id_user \n"+
+            "on u.id_user=r.useror \n"+
             "\n" +
             " group by r.type_account" , nativeQuery = true )
     public List<String[]> cantidadUsuarioRol();
